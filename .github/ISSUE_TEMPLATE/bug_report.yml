@@ -1,0 +1,41 @@
+name: Bug report
+description: Report a reproducible code, configuration or evaluation problem.
+title: "[Bug] "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: Please remove private paths, dataset images, credentials and tokens before submitting.
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: What happened, and what did you expect?
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Minimal reproduction
+      description: Include the command, config and smallest useful traceback.
+    validations:
+      required: true
+  - type: input
+    id: commit
+    attributes:
+      label: Commit
+      placeholder: git rev-parse HEAD
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Python, PyTorch, CUDA, GPU and operating system.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Safety checks
+      options:
+        - label: I removed secrets and private dataset paths.
+          required: true
+        - label: I did not attach an untrusted checkpoint.
+          required: true

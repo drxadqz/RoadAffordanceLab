@@ -3,11 +3,26 @@ requires = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "friction-affordance-field"
-version = "0.1.0"
-description = "Heterogeneous weakly supervised visual road-state learning for calibrated friction-risk intervals"
+name = "road-affordance-lab"
+version = "0.2.0"
+description = "Auditable factor-aware and physics-guided visual road-surface recognition"
 readme = "README.md"
 requires-python = ">=3.10"
+keywords = [
+  "road-surface classification",
+  "fine-grained classification",
+  "physics-guided learning",
+  "model evaluation",
+  "reproducible research",
+]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
 dependencies = [
   "torch",
   "torchvision",
@@ -17,10 +32,20 @@ dependencies = [
   "PyYAML",
   "scikit-learn",
   "tqdm",
-  "opencv-python",
-  "tensorboard",
   "timm",
 ]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8",
+  "ruff>=0.6",
+]
+
+[project.urls]
+Homepage = "https://github.com/drxadqz/rp"
+Documentation = "https://github.com/drxadqz/rp/tree/main/docs"
+Repository = "https://github.com/drxadqz/rp"
+Issues = "https://github.com/drxadqz/rp/issues"
 
 [tool.setuptools.packages.find]
 where = ["src"]
@@ -28,3 +53,7 @@ where = ["src"]
 [tool.pytest.ini_options]
 pythonpath = ["src"]
 testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py310"
+line-length = 120

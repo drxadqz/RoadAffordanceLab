@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="530" viewBox="0 0 1200 530" role="img" aria-labelledby="title desc">
+  <title id="title">Verified C3-FaRNet S7 metrics</title>
+  <desc id="desc">Horizontal bars show Top-1, Macro-F1, condition, material, roughness and weakest-class F1 metrics.</desc>
+  <rect width="1200" height="530" rx="24" fill="#F8FAFC"/>
+  <text x="54" y="58" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="30" font-weight="500" fill="#0F172A" text-anchor="start">Verified full-test evidence</text>
+  <text x="54" y="88" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="17" font-weight="400" fill="#64748B" text-anchor="start">Single model · 49,500 images · values generated from metrics_summary.json</text>
+  <text x="54" y="158" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="19" font-weight="500" fill="#334155" text-anchor="start">Top-1</text>
+  <text x="570" y="158" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="21" font-weight="500" fill="#155EEF" text-anchor="end">90.63%</text>
+  <rect x="54" y="179" width="516" height="22" rx="11" fill="#E2E8F0"/>
+  <rect x="54" y="179" width="467.66" height="22" rx="11" fill="#155EEF"/>
+  <text x="624" y="158" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="19" font-weight="500" fill="#334155" text-anchor="start">Macro-F1</text>
+  <text x="1140" y="158" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="21" font-weight="500" fill="#0891B2" text-anchor="end">88.92%</text>
+  <rect x="624" y="179" width="516" height="22" rx="11" fill="#E2E8F0"/>
+  <rect x="624" y="179" width="458.83" height="22" rx="11" fill="#0891B2"/>
+  <text x="54" y="278" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="19" font-weight="500" fill="#334155" text-anchor="start">Condition</text>
+  <text x="570" y="278" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="21" font-weight="500" fill="#7C3AED" text-anchor="end">96.60%</text>
+  <rect x="54" y="299" width="516" height="22" rx="11" fill="#E2E8F0"/>
+  <rect x="54" y="299" width="498.44" height="22" rx="11" fill="#7C3AED"/>
+  <text x="624" y="278" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="19" font-weight="500" fill="#334155" text-anchor="start">Material</text>
+  <text x="1140" y="278" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="21" font-weight="500" fill="#0F766E" text-anchor="end">97.21%</text>
+  <rect x="624" y="299" width="516" height="22" rx="11" fill="#E2E8F0"/>
+  <rect x="624" y="299" width="501.60" height="22" rx="11" fill="#0F766E"/>
+  <text x="54" y="398" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="19" font-weight="500" fill="#334155" text-anchor="start">Roughness</text>
+  <text x="570" y="398" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="21" font-weight="500" fill="#F97316" text-anchor="end">95.18%</text>
+  <rect x="54" y="419" width="516" height="22" rx="11" fill="#E2E8F0"/>
+  <rect x="54" y="419" width="491.11" height="22" rx="11" fill="#F97316"/>
+  <text x="624" y="398" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="19" font-weight="500" fill="#334155" text-anchor="start">Weakest F1</text>
+  <text x="1140" y="398" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="21" font-weight="500" fill="#DC2626" text-anchor="end">75.69%</text>
+  <rect x="624" y="419" width="516" height="22" rx="11" fill="#E2E8F0"/>
+  <rect x="624" y="419" width="390.58" height="22" rx="11" fill="#DC2626"/>
+  <text x="54" y="495" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#64748B" text-anchor="start">Not a SOTA claim · historical 192×192 letterbox protocol · see model card for limits</text>
+</svg>

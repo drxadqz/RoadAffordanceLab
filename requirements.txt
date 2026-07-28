@@ -6,8 +6,5 @@ Pillow
 PyYAML
 scikit-learn
 tqdm
-opencv-python
-tensorboard
 timm
-open3d
 

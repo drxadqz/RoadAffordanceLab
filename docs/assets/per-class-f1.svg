@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1122" viewBox="0 0 1200 1122" role="img" aria-labelledby="title desc">
+  <title id="title">Per-class F1 on the released RSCD test record</title>
+  <desc id="desc">All 27 class F1 scores are sorted from lowest to highest; difficult water and wet concrete classes are orange.</desc>
+  <rect width="1200" height="1122" rx="24" fill="#F8FAFC"/>
+  <text x="54" y="58" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="30" font-weight="500" fill="#0F172A" text-anchor="start">Per-class F1</text>
+  <text x="54" y="88" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="17" font-weight="400" fill="#64748B" text-anchor="start">All 27 classes · sorted by F1 · difficult water/wet concrete classes highlighted</text>
+  <line x1="338" y1="112" x2="338" y2="1070" stroke="#CBD5E1"/>
+  <line x1="718.0" y1="112" x2="718.0" y2="1070" stroke="#E2E8F0"/>
+  <line x1="1098" y1="112" x2="1098" y2="1070" stroke="#CBD5E1"/>
+  <text x="320" y="144" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="500" fill="#334155" text-anchor="end">water_concrete_slight</text>
+  <rect x="338" y="128" width="760" height="21" rx="7" fill="#E2E8F0"/>
+  <rect x="338" y="128" width="575.27" height="21" rx="7" fill="#F97316"/>
+  <text x="1114" y="144" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="500" fill="#F97316" text-anchor="start">75.7</text>
+  <text x="320" y="178" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#334155" text-anchor="end">water_asphalt_slight</text>
+  <rect x="338" y="162" width="760" height="21" rx="7" fill="#E2E8F0"/>
+  <rect x="338" y="162" width="602.46" height="21" rx="7" fill="#155EEF"/>
+  <text x="1114" y="178" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="500" fill="#155EEF" text-anchor="start">79.3</text>
+  <text x="320" y="212" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="500" fill="#334155" text-anchor="end">wet_concrete_slight</text>
+  <rect x="338" y="196" width="760" height="21" rx="7" fill="#E2E8F0"/>
+  <rect x="338" y="196" width="610.92" height="21" rx="7" fill="#F97316"/>
+  <text x="1114" y="212" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="500" fill="#F97316" text-anchor="start">80.4</text>
+  <text x="320" y="246" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="500" fill="#334155" text-anchor="end">water_concrete_severe</text>
+  <rect x="338" y="230" width="760" height="21" rx="7" fill="#E2E8F0"/>
+  <rect x="338" y="230" width="615.48" height="21" rx="7" fill="#F97316"/>
+  <text x="1114" y="246" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="500" fill="#F97316" text-anchor="start">81.0</text>
+  <text x="320" y="280" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#334155" text-anchor="end">dry_concrete_slight</text>
+  <rect x="338" y="264" width="760" height="21" rx="7" fill="#E2E8F0"/>
+  <rect x="338" y="264" width="632.68" height="21" rx="7" fill="#155EEF"/>
+  <text x="1114" y="280" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="500" fill="#155EEF" text-anchor="start">83.2</text>
+  <text x="320" y="314" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="500" fill="#334155" text-anchor="end">wet_concrete_severe</text>
+  <rect x="338" y="298" width="760" height="21" rx="7" fill="#E2E8F0"/>
+  <rect x="338" y="298" width="634.71" height="21" rx="7" fill="#F97316"/>
+  <text x="1114" y="314" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="500" fill="#F97316" text-anchor="start">83.5</text>
+  <text x="320" y="348" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#334155" text-anchor="end">water_asphalt_severe</text>
+  <rect x="338" y="332" width="760" height="21" rx="7" fill="#E2E8F0"/>
+  <rect x="338" y="332" width="637.76" height="21" rx="7" fill="#155EEF"/>
+  <text x="1114" y="348" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="500" fill="#155EEF" text-anchor="start">83.9</text>
+  <text x="320" y="382" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#334155" text-anchor="end">water_gravel</text>
+  <rect x="338" y="366" width="760" height="21" rx="7" fill="#E2E8F0"/>
+  <rect x="338" y="366" width="653.53" height="21" rx="7" fill="#155EEF"/>
+  <text x="1114" y="382" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="500" fill="#155EEF" text-anchor="start">86.0</text>
+  <text x="320" y="416" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#334155" text-anchor="end">dry_concrete_severe</text>
+  <rect x="338" y="400" width="760" height="21" rx="7" fill="#E2E8F0"/>
+  <rect x="338" y="400" width="657.73" height="21" rx="7" fill="#155EEF"/>
+  <text x="1114" y="416" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="500" fill="#155EEF" text-anchor="start">86.5</text>
+  <text x="320" y="450" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#334155" text-anchor="end">dry_asphalt_severe</text>
+  <rect x="338" y="434" width="760" height="21" rx="7" fill="#E2E8F0"/>
+  <rect x="338" y="434" width="658.13" height="21" rx="7" fill="#155EEF"/>
+  <text x="1114" y="450" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="500" fill="#155EEF" text-anchor="start">86.6</text>
+  <text x="320" y="484" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#334155" text-anchor="end">wet_concrete_smooth</text>
+  <rect x="338" y="468" width="760" height="21" rx="7" fill="#E2E8F0"/>
+  <rect x="338" y="468" width="664.21" height="21" rx="7" fill="#155EEF"/>
+  <text x="1114" y="484" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="500" fill="#155EEF" text-anchor="start">87.4</text>
+  <text x="320" y="518" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#334155" text-anchor="end">wet_asphalt_severe</text>
+  <rect x="338" y="502" width="760" height="21" rx="7" fill="#E2E8F0"/>
+  <rect x="338" y="502" width="672.93" height="21" rx="7" fill="#155EEF"/>
+  <text x="1114" y="518" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="500" fill="#155EEF" text-anchor="start">88.5</text>
+  <text x="320" y="552" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#334155" text-anchor="end">water_concrete_smooth</text>
+  <rect x="338" y="536" width="760" height="21" rx="7" fill="#E2E8F0"/>
+  <rect x="338" y="536" width="673.32" height="21" rx="7" fill="#155EEF"/>
+  <text x="1114" y="552" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="500" fill="#155EEF" text-anchor="start">88.6</text>
+  <text x="320" y="586" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#334155" text-anchor="end">wet_asphalt_slight</text>
+  <rect x="338" y="570" width="760" height="21" rx="7" fill="#E2E8F0"/>
+  <rect x="338" y="570" width="676.60" height="21" rx="7" fill="#155EEF"/>
+  <text x="1114" y="586" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="500" fill="#155EEF" text-anchor="start">89.0</text>
+  <text x="320" y="620" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#334155" text-anchor="end">dry_asphalt_slight</text>
+  <rect x="338" y="604" width="760" height="21" rx="7" fill="#E2E8F0"/>
+  <rect x="338" y="604" width="685.36" height="21" rx="7" fill="#155EEF"/>
+  <text x="1114" y="620" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="500" fill="#155EEF" text-anchor="start">90.2</text>
+  <text x="320" y="654" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#334155" text-anchor="end">wet_mud</text>
+  <rect x="338" y="638" width="760" height="21" rx="7" fill="#E2E8F0"/>
+  <rect x="338" y="638" width="694.52" height="21" rx="7" fill="#155EEF"/>
+  <text x="1114" y="654" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="500" fill="#155EEF" text-anchor="start">91.4</text>
+  <text x="320" y="688" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#334155" text-anchor="end">dry_concrete_smooth</text>
+  <rect x="338" y="672" width="760" height="21" rx="7" fill="#E2E8F0"/>
+  <rect x="338" y="672" width="698.02" height="21" rx="7" fill="#155EEF"/>
+  <text x="1114" y="688" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="500" fill="#155EEF" text-anchor="start">91.8</text>
+  <text x="320" y="722" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#334155" text-anchor="end">wet_asphalt_smooth</text>
+  <rect x="338" y="706" width="760" height="21" rx="7" fill="#E2E8F0"/>
+  <rect x="338" y="706" width="700.05" height="21" rx="7" fill="#155EEF"/>
+  <text x="1114" y="722" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="500" fill="#155EEF" text-anchor="start">92.1</text>
+  <text x="320" y="756" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#334155" text-anchor="end">dry_asphalt_smooth</text>
+  <rect x="338" y="740" width="760" height="21" rx="7" fill="#E2E8F0"/>
+  <rect x="338" y="740" width="701.66" height="21" rx="7" fill="#155EEF"/>
+  <text x="1114" y="756" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="500" fill="#155EEF" text-anchor="start">92.3</text>
+  <text x="320" y="790" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#334155" text-anchor="end">dry_gravel</text>
+  <rect x="338" y="774" width="760" height="21" rx="7" fill="#E2E8F0"/>
+  <rect x="338" y="774" width="702.56" height="21" rx="7" fill="#155EEF"/>
+  <text x="1114" y="790" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="500" fill="#155EEF" text-anchor="start">92.4</text>
+  <text x="320" y="824" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#334155" text-anchor="end">wet_gravel</text>
+  <rect x="338" y="808" width="760" height="21" rx="7" fill="#E2E8F0"/>
+  <rect x="338" y="808" width="707.01" height="21" rx="7" fill="#155EEF"/>
+  <text x="1114" y="824" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="500" fill="#155EEF" text-anchor="start">93.0</text>
+  <text x="320" y="858" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#334155" text-anchor="end">water_asphalt_smooth</text>
+  <rect x="338" y="842" width="760" height="21" rx="7" fill="#E2E8F0"/>
+  <rect x="338" y="842" width="712.56" height="21" rx="7" fill="#155EEF"/>
+  <text x="1114" y="858" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="500" fill="#155EEF" text-anchor="start">93.8</text>
+  <text x="320" y="892" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#334155" text-anchor="end">dry_mud</text>
+  <rect x="338" y="876" width="760" height="21" rx="7" fill="#E2E8F0"/>
+  <rect x="338" y="876" width="713.05" height="21" rx="7" fill="#155EEF"/>
+  <text x="1114" y="892" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="500" fill="#155EEF" text-anchor="start">93.8</text>
+  <text x="320" y="926" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#334155" text-anchor="end">water_mud</text>
+  <rect x="338" y="910" width="760" height="21" rx="7" fill="#E2E8F0"/>
+  <rect x="338" y="910" width="716.42" height="21" rx="7" fill="#155EEF"/>
+  <text x="1114" y="926" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="500" fill="#155EEF" text-anchor="start">94.3</text>
+  <text x="320" y="960" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#334155" text-anchor="end">melted_snow</text>
+  <rect x="338" y="944" width="760" height="21" rx="7" fill="#E2E8F0"/>
+  <rect x="338" y="944" width="748.59" height="21" rx="7" fill="#155EEF"/>
+  <text x="1114" y="960" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="500" fill="#155EEF" text-anchor="start">98.5</text>
+  <text x="320" y="994" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#334155" text-anchor="end">ice</text>
+  <rect x="338" y="978" width="760" height="21" rx="7" fill="#E2E8F0"/>
+  <rect x="338" y="978" width="748.86" height="21" rx="7" fill="#155EEF"/>
+  <text x="1114" y="994" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="500" fill="#155EEF" text-anchor="start">98.5</text>
+  <text x="320" y="1028" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#334155" text-anchor="end">fresh_snow</text>
+  <rect x="338" y="1012" width="760" height="21" rx="7" fill="#E2E8F0"/>
+  <rect x="338" y="1012" width="751.91" height="21" rx="7" fill="#155EEF"/>
+  <text x="1114" y="1028" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="500" fill="#155EEF" text-anchor="start">98.9</text>
+  <text x="338" y="1097" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" fill="#64748B" text-anchor="middle">0</text>
+  <text x="718.0" y="1097" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" fill="#64748B" text-anchor="middle">50</text>
+  <text x="1098" y="1097" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" fill="#64748B" text-anchor="middle">100%</text>
+</svg>

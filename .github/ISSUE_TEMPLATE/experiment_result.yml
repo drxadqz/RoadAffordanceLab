@@ -1,0 +1,37 @@
+name: Experiment result
+description: Propose a controlled benchmark or report a reproducible result.
+title: "[Experiment] "
+labels: [experiment]
+body:
+  - type: textarea
+    id: hypothesis
+    attributes:
+      label: Hypothesis
+      description: What mechanism or engineering change is being tested?
+    validations:
+      required: true
+  - type: textarea
+    id: protocol
+    attributes:
+      label: Frozen protocol
+      description: State data split, input geometry, seed, initialization, pretraining, horizon and inference policy.
+    validations:
+      required: true
+  - type: textarea
+    id: results
+    attributes:
+      label: Results
+      description: Include Top-1, Macro-F1, weakest-class F1 and links to machine-readable evidence.
+    validations:
+      required: true
+  - type: checkboxes
+    id: integrity
+    attributes:
+      label: Integrity
+      options:
+        - label: The test split was not used to select this method.
+          required: true
+        - label: The baseline and candidate received matched compute and data.
+          required: true
+        - label: Checkpoint and config hashes are available.
+          required: true

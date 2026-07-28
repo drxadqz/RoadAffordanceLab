@@ -5,6 +5,10 @@ __pycache__/
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
+.preview/
+.idea/
+.vscode/
+.DS_Store
 .venv/
 venv/
 env/
@@ -27,6 +31,7 @@ wandb/
 !results/s7_lineage/formal_fullmanifest_s7/train_stderr_20260709_074914.log
 *.tmp
 data/manifests_full/*.csv
+configs/data/local_paths.yaml
 data/raw/
 data/datasets/
 *.zip

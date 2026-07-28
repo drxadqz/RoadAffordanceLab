@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use this software or its evaluation artifacts, please cite it using this metadata."
+title: "RoadAffordanceLab: Auditable Factor-Aware Road-Surface Recognition"
+type: software
+authors:
+  - name: "drxadqz"
+repository-code: "https://github.com/drxadqz/rp"
+url: "https://github.com/drxadqz/rp"
+version: 0.2.0
+date-released: 2026-07-29
+license: MIT
+keywords:
+  - road-surface classification
+  - friction affordance
+  - fine-grained classification
+  - physics-guided learning
+  - reproducible research
+abstract: >-
+  A PyTorch/CUDA research-engineering project for factor-aware visual road-surface
+  recognition with explicit physics evidence, hard-boundary evaluation and
+  checkpoint provenance.

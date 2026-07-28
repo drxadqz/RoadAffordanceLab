@@ -1,0 +1,34 @@
+name: release-contract
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out source without large LFS binaries
+        uses: actions/checkout@v4
+        with:
+          lfs: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Compile public Python source
+        run: python -m compileall -q src scripts train.py validate.py test.py
+
+      - name: Verify metrics, links and checkpoint pointers
+        run: python scripts/verify_release.py
+
+      - name: Verify generated README figures
+        run: python scripts/generate_readme_assets.py --check

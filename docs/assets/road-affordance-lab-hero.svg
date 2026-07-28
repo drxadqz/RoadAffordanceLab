@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
+  <title id="title">RoadAffordanceLab</title>
+  <desc id="desc">A blue research-engineering banner for factor-aware, physics-guided road-surface intelligence.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#071A3D"/>
+      <stop offset="0.58" stop-color="#155EEF"/>
+      <stop offset="1" stop-color="#0891B2"/>
+    </linearGradient>
+    <linearGradient id="road" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.06"/>
+      <stop offset="0.5" stop-color="#FFFFFF" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0.06"/>
+    </linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="9"/></filter>
+  </defs>
+  <rect width="1200" height="360" rx="28" fill="url(#bg)"/>
+  <circle cx="1040" cy="55" r="135" fill="#FFFFFF" opacity="0.06"/>
+  <circle cx="1070" cy="330" r="175" fill="#F97316" opacity="0.10"/>
+  <path d="M670 360 L815 76 L995 76 L1160 360 Z" fill="url(#road)"/>
+  <path d="M907 100 L919 100 L940 175 L928 175 Z" fill="#FFFFFF" opacity="0.70"/>
+  <path d="M948 205 L968 205 L1002 326 L978 326 Z" fill="#FFFFFF" opacity="0.70"/>
+  <g fill="none" stroke="#7DD3FC" stroke-width="2" opacity="0.62">
+    <path d="M760 86 C815 130 800 188 860 228 C900 255 908 300 936 344"/>
+    <path d="M825 92 C872 130 870 175 914 198"/>
+  </g>
+  <g fill="#FFFFFF">
+    <circle cx="760" cy="86" r="7"/><circle cx="860" cy="228" r="7"/><circle cx="936" cy="344" r="7"/>
+    <circle cx="825" cy="92" r="7"/><circle cx="914" cy="198" r="7"/>
+  </g>
+  <text x="72" y="96" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="48" font-weight="500" fill="#FFFFFF" text-anchor="start">RoadAffordanceLab</text>
+  <text x="72" y="143" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="27" font-weight="400" fill="#D7E8FF" text-anchor="start">Factor-aware road-surface intelligence</text>
+  <text x="72" y="201" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="22" font-weight="400" fill="#FFFFFF" text-anchor="start">From physical evidence to auditable decisions</text>
+  <g>
+    <rect x="72" y="242" width="184" height="42" rx="21" fill="#FFFFFF" opacity="0.14"/>
+    <rect x="270" y="242" width="170" height="42" rx="21" fill="#FFFFFF" opacity="0.14"/>
+    <rect x="454" y="242" width="202" height="42" rx="21" fill="#FFFFFF" opacity="0.14"/>
+  <text x="164" y="270" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="17" font-weight="500" fill="#FFFFFF" text-anchor="middle">Physics-guided</text>
+  <text x="355" y="270" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="17" font-weight="500" fill="#FFFFFF" text-anchor="middle">Factor-coupled</text>
+  <text x="555" y="270" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="17" font-weight="500" fill="#FFFFFF" text-anchor="middle">Reproducible</text>
+  </g>
+  <text x="72" y="326" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="18" font-weight="400" fill="#D7E8FF" text-anchor="start">PyTorch  •  CUDA  •  RSCD  •  Evidence-first evaluation</text>
+</svg>

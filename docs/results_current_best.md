@@ -8,6 +8,8 @@ c3_farnet_formal_fullmanifest_source_reliable_router_s7_20260709
 
 It completed the full RSCD test split with 49,500 images.
 
+> This is a verified internal release result under the historical RSCD protocol. It is not presented as a new public SOTA claim.
+
 There is also a parent-checkpoint plus source-reliable-router inference record with `90.640%` Top-1 on the same 49,500-image test split. That record is documented separately because it loads the parent checkpoint and applies the router at evaluation time, rather than using the standalone formal S7 checkpoint.
 
 ## Summary
@@ -25,6 +27,18 @@ There is also a parent-checkpoint plus source-reliable-router inference record w
 | Classes | 27 |
 | Weakest class | water_concrete_slight |
 | Weakest-class F1 | 75.693% |
+
+## Factor-Level Result
+
+| factor | accuracy |
+|---|---:|
+| condition / friction state | 96.596% |
+| material | 97.210% |
+| roughness | 95.176% |
+
+These factor accuracies do not replace 27-class Macro-F1. They help identify whether a wrong class is primarily caused by condition, material or roughness.
+
+![Verified result overview](assets/verified-metrics.svg)
 
 ## What the Metrics Mean
 
@@ -68,5 +82,13 @@ results/current_best_s7/per_class_metrics.csv
 results/current_best_s7/confusion_matrix.csv
 results/current_best_s7/hard_pair_metrics.csv
 ```
+
+The README figures are generated from these files with:
+
+```bash
+python scripts/generate_readme_assets.py
+```
+
+CI runs the same program with `--check`, so a manually edited chart that disagrees with the CSV/JSON evidence cannot pass the release contract.
 
 For the parent checkpoint, the `90.045%` initial-validation number, and the source-router `90.640%` record, see [s7_training_lineage.md](s7_training_lineage.md).
