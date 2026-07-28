@@ -14,7 +14,7 @@
   <a href="#verified-result">Verified result</a> ·
   <a href="#quick-start">Quick start</a> ·
   <a href="docs/engineering.md">Engineering notes</a> ·
-  <a href="docs/model_card.md">Model card</a>
+  <a href="MODEL_CARD.md">Model card</a>
 </p>
 
 <p align="center">
@@ -34,6 +34,16 @@ The repository is intentionally more than a model definition. It includes config
 
 > [!IMPORTANT]
 > The numbers on this page are from the released **single-model S7 checkpoint** and the frozen 49,500-image RSCD test record. They are not presented as a new public SOTA claim. Active ARCQ/TACT research is excluded until its validation protocol is frozen and completed.
+
+### Inspect the release in three commands
+
+The public contract check is intentionally lightweight: it validates the committed metrics, per-class table, confusion matrix, README assets and checkpoint manifest without requiring RSCD images or a GPU.
+
+```bash
+git clone https://github.com/drxadqz/rp.git && cd rp
+git lfs install && git lfs pull
+python scripts/verify_release.py --check-checkpoints
+```
 
 ## Project at a glance
 
@@ -89,17 +99,27 @@ The released checkpoint was evaluated once under the recorded full protocol: a s
 
 All chart values are generated directly from [`results/current_best_s7`](results/current_best_s7) by [`scripts/generate_readme_assets.py`](scripts/generate_readme_assets.py). The full evidence bundle includes the confusion matrix, per-class metrics, hard-pair metrics, predictions and training lineage.
 
+### Release artifacts
+
+| Artifact | Purpose |
+|---|---|
+| [`current_best_s7_public.yaml`](configs/c3_farnet/current_best_s7_public.yaml) | Portable model, data and training contract |
+| [`best_checkpoint.pth`](checkpoints/c3_farnet_formal_fullmanifest_source_reliable_router_s7_20260709/best_checkpoint.pth) | Released Git-LFS checkpoint artifact |
+| [`results/current_best_s7`](results/current_best_s7) | Compact metrics, confusion matrix, hard pairs and per-class evidence |
+| [`checkpoint_manifest.json`](results/s7_lineage/checkpoint_manifest.json) | SHA256 checkpoint ancestry and role inventory |
+| [`MODEL_CARD.md`](MODEL_CARD.md) | Intended use, limits and result provenance |
+
 ## What makes the work technically interesting
 
 ### 1. A structured label space, not a flat classifier
 
 The class target is modeled as a factor tuple
 
-\[
+$$
 y=(f,m,r),
-\]
+$$
 
-where \(f\) is road condition/friction state, \(m\) is material and \(r\) is roughness. The network jointly represents factor evidence and the coupled 27-class decision. This makes errors diagnosable: a `wet_concrete_slight` → `water_concrete_slight` error is a condition-boundary error, while a `slight` → `severe` error is a roughness-boundary error.
+where $f$ is road condition/friction state, $m$ is material and $r$ is roughness. The network jointly represents factor evidence and the coupled 27-class decision. This makes errors diagnosable: a `wet_concrete_slight` → `water_concrete_slight` error is a condition-boundary error, while a `slight` → `severe` error is a roughness-boundary error.
 
 ### 2. Explicit physical evidence alongside learned features
 
@@ -216,7 +236,7 @@ See [Engineering notes](docs/engineering.md) for implementation details and a sh
 |---|---|
 | [Algorithm (English)](docs/algorithm.md) | C3-FaRNet architecture and module behavior |
 | [算法详解（中文）](docs/algorithm_zh.md) | 中文结构、原理与公式说明 |
-| [Model card](docs/model_card.md) | Intended use, metrics, limitations and ethical boundary |
+| [Model card](MODEL_CARD.md) | Intended use, metrics, limitations and ethical boundary |
 | [Data and reproduction](docs/data_and_reproduction.md) | Manifest schema and local data preparation |
 | [Engineering notes](docs/engineering.md) | Training/evaluation stack and code-reading guide |
 | [Results](docs/results_current_best.md) | Verified metrics and evidence locations |
@@ -227,7 +247,7 @@ See [Engineering notes](docs/engineering.md) for implementation details and a sh
 
 This model estimates **visual road-surface state and visual friction affordance**. RSCD labels are visual proxy labels, not synchronized tire-force or friction-meter measurements. It must not be used as a direct friction-coefficient sensor or as the sole component of a safety-critical driving decision.
 
-See the [model card](docs/model_card.md) and [data documentation](docs/data_and_reproduction.md) before deployment or cross-dataset evaluation.
+See the [model card](MODEL_CARD.md) and [data documentation](docs/data_and_reproduction.md) before deployment or cross-dataset evaluation.
 
 ## Citation
 

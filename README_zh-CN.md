@@ -14,7 +14,7 @@
   <a href="#已核验的结果">已核验结果</a> ·
   <a href="#快速开始">快速开始</a> ·
   <a href="docs/engineering.md">工程实现</a> ·
-  <a href="docs/model_card.md">Model Card</a>
+  <a href="MODEL_CARD.md">Model Card</a>
 </p>
 
 <p align="center">
@@ -31,8 +31,18 @@ RoadAffordanceLab 是一个面向 RSCD 27 类路面状态识别的完整研究�
 
 仓库不只包含模型定义，还包含配置驱动训练、CUDA 混合精度、可恢复 checkpoint、困难类对分析、因子级指标、完整结果证据和 checkpoint 溯源。这些工程方法与大模型训练和评测系统具有直接共性：明确的数据契约、可控对照实验、分组误差分析和可复核产物。
 
-> [!重要]
+> [!IMPORTANT]
 > 本页指标来自已发布的单模型 S7 checkpoint 和冻结的 49,500 张 RSCD 测试记录，不声称是新的公开 SOTA。ARCQ/TACT 研究在验证协议冻结且完成前不会混入正式结果。
+
+### 三条命令检查公开发布
+
+发布契约检查不需要 RSCD 原始图像或 GPU；它会核对已提交的汇总指标、逐类表、混淆矩阵、README 图表和 checkpoint 清单是否相互一致。
+
+```bash
+git clone https://github.com/drxadqz/rp.git && cd rp
+git lfs install && git lfs pull
+python scripts/verify_release.py --check-checkpoints
+```
 
 ## 60 秒看懂项目
 
@@ -77,17 +87,27 @@ RSCD 的难点不只是路面“亮不亮”。水膜会同时带来暗化、高
 
 所有图表都由 [`scripts/generate_readme_assets.py`](scripts/generate_readme_assets.py) 直接读取 [`results/current_best_s7`](results/current_best_s7) 中的 CSV/JSON 生成，不是手工填写的展示图。
 
+### 发布产物索引
+
+| 产物 | 用途 |
+|---|---|
+| [`current_best_s7_public.yaml`](configs/c3_farnet/current_best_s7_public.yaml) | 可移植的模型、数据和训练契约 |
+| [`best_checkpoint.pth`](checkpoints/c3_farnet_formal_fullmanifest_source_reliable_router_s7_20260709/best_checkpoint.pth) | 通过 Git LFS 发布的 checkpoint |
+| [`results/current_best_s7`](results/current_best_s7) | 汇总指标、混淆矩阵、困难类对和逐类证据 |
+| [`checkpoint_manifest.json`](results/s7_lineage/checkpoint_manifest.json) | checkpoint SHA256、角色与继承链 |
+| [`MODEL_CARD.md`](MODEL_CARD.md) | 适用范围、限制和结果来源 |
+
 ## 算法与工程亮点
 
 ### 1. 结构化标签空间
 
 目标类别被建模为
 
-\[
+$$
 y=(f,m,r),
-\]
+$$
 
-其中 \(f\) 是路面状态，\(m\) 是材质，\(r\) 是粗糙度。这使错误可以被解释为状态边界、材质边界或粗糙度边界，而不是只得到一个 27×27 的黑盒混淆矩阵。
+其中 $f$ 是路面状态，$m$ 是材质，$r$ 是粗糙度。这使错误可以被解释为状态边界、材质边界或粗糙度边界，而不是只得到一个 27×27 的黑盒混淆矩阵。
 
 ### 2. 显式物理证据与学习特征并行
 
@@ -173,7 +193,7 @@ python train.py --config configs/c3_farnet/current_best_s7_public.yaml
 |---|---|
 | [算法详解（中文）](docs/algorithm_zh.md) | C3-FaRNet 结构、原理与公式 |
 | [Algorithm (English)](docs/algorithm.md) | 英文方法说明 |
-| [Model Card](docs/model_card.md) | 用途、指标、限制和安全边界 |
+| [Model Card](MODEL_CARD.md) | 用途、指标、限制和安全边界 |
 | [数据与复现](docs/data_and_reproduction.md) | Manifest 契约和数据准备 |
 | [工程说明](docs/engineering.md) | 训练/评测系统与代码阅读路径 |
 | [结果证据](docs/results_current_best.md) | 已核验指标和证据文件 |
