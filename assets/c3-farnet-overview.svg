@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="560" viewBox="0 0 1400 560" role="img" aria-labelledby="title desc">
+  <title id="title">C3-FaRNet architecture overview</title>
+  <desc id="desc">RGB road image is processed by a conditioned visual backbone and local physics evidence branches, followed by factor heads, coupled reasoning, and 27-class output</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#6B7C93"/>
+    </marker>
+    <linearGradient id="main" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#155EEF"/>
+      <stop offset="1" stop-color="#0B47C2"/>
+    </linearGradient>
+    <linearGradient id="physics" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0891B2"/>
+      <stop offset="1" stop-color="#08758F"/>
+    </linearGradient>
+  </defs>
+  <rect x="1" y="1" width="1398" height="558" rx="28" fill="#F8FAFD" stroke="#D9E4F3"/>
+  <text x="56" y="54" fill="#1F2937" font-size="28" font-weight="800" font-family="Inter, Segoe UI, Arial, sans-serif">C3-FaRNet: evidence is structured before it is classified</text>
+  <text x="56" y="82" fill="#64748B" font-size="16" font-family="Inter, Segoe UI, Arial, sans-serif">Global appearance identifies material; local physical evidence resolves condition and roughness; factor coupling reconstructs valid road states.</text>
+
+  <g stroke="#6B7C93" stroke-width="3" fill="none" marker-end="url(#arrow)">
+    <path d="M198 288 H284"/>
+    <path d="M198 288 C235 288 238 414 284 414"/>
+    <path d="M564 238 H650"/>
+    <path d="M564 414 C606 414 608 340 650 340"/>
+    <path d="M870 288 H948"/>
+    <path d="M1174 288 H1252"/>
+  </g>
+
+  <g font-family="Inter, Segoe UI, Arial, sans-serif">
+    <g transform="translate(52 214)">
+      <rect width="146" height="148" rx="22" fill="#FFFFFF" stroke="#C9D8EB"/>
+      <rect x="20" y="22" width="106" height="76" rx="14" fill="#EAF1FF"/>
+      <path d="M29 86 L55 56 L75 70 L97 41 L118 86Z" fill="#155EEF" opacity="0.78"/>
+      <path d="M28 90 H118" stroke="#F97316" stroke-width="4" stroke-linecap="round"/>
+      <text x="73" y="122" text-anchor="middle" fill="#1F2937" font-size="18" font-weight="750">Road image</text>
+      <text x="73" y="142" text-anchor="middle" fill="#64748B" font-size="13">RGB · 192×192</text>
+    </g>
+
+    <g transform="translate(284 156)">
+      <rect width="280" height="164" rx="22" fill="url(#main)"/>
+      <text x="24" y="38" fill="#FFFFFF" font-size="18" font-weight="800">Conditioned visual backbone</text>
+      <text x="24" y="68" fill="#DCE8FF" font-size="14">ConvNeXt-style multi-stage features</text>
+      <g transform="translate(24 92)">
+        <rect width="48" height="40" rx="9" fill="#FFFFFF" fill-opacity="0.20"/>
+        <rect x="60" width="48" height="40" rx="9" fill="#FFFFFF" fill-opacity="0.28"/>
+        <rect x="120" width="48" height="40" rx="9" fill="#FFFFFF" fill-opacity="0.36"/>
+        <rect x="180" width="48" height="40" rx="9" fill="#FFFFFF" fill-opacity="0.44"/>
+        <path d="M48 20 H60 M108 20 H120 M168 20 H180" stroke="#FFFFFF" stroke-width="2"/>
+      </g>
+      <text x="24" y="151" fill="#BFD4FF" font-size="12">task-conditioned texture and boundary preservation</text>
+    </g>
+
+    <g transform="translate(284 354)">
+      <rect width="280" height="122" rx="22" fill="url(#physics)"/>
+      <text x="24" y="36" fill="#FFFFFF" font-size="20" font-weight="800">Local physics evidence</text>
+      <text x="24" y="66" fill="#D5F8FD" font-size="14">glare · dark water · texture loss</text>
+      <text x="24" y="91" fill="#D5F8FD" font-size="14">gradient · contrast · connected regions</text>
+      <circle cx="242" cy="34" r="14" fill="#FFFFFF" fill-opacity="0.22"/>
+      <circle cx="238" cy="82" r="22" fill="#FFFFFF" fill-opacity="0.14"/>
+    </g>
+
+    <g transform="translate(650 190)">
+      <rect width="220" height="196" rx="22" fill="#FFFFFF" stroke="#C9D8EB"/>
+      <text x="110" y="34" text-anchor="middle" fill="#1F2937" font-size="20" font-weight="800">Factor heads</text>
+      <g transform="translate(22 54)">
+        <rect width="176" height="35" rx="17" fill="#E9F0FF"/>
+        <circle cx="20" cy="17.5" r="6" fill="#155EEF"/>
+        <text x="38" y="23" fill="#23416F" font-size="14" font-weight="650">Condition</text>
+      </g>
+      <g transform="translate(22 101)">
+        <rect width="176" height="35" rx="17" fill="#E5F8FB"/>
+        <circle cx="20" cy="17.5" r="6" fill="#0891B2"/>
+        <text x="38" y="23" fill="#23416F" font-size="14" font-weight="650">Material</text>
+      </g>
+      <g transform="translate(22 148)">
+        <rect width="176" height="35" rx="17" fill="#FFF0E7"/>
+        <circle cx="20" cy="17.5" r="6" fill="#F97316"/>
+        <text x="38" y="23" fill="#23416F" font-size="14" font-weight="650">Roughness</text>
+      </g>
+    </g>
+
+    <g transform="translate(948 205)">
+      <rect width="226" height="166" rx="22" fill="#111E3A"/>
+      <text x="113" y="38" text-anchor="middle" fill="#FFFFFF" font-size="20" font-weight="800">Coupled reasoning</text>
+      <text x="113" y="65" text-anchor="middle" fill="#BFD4FF" font-size="13">low-rank interactions</text>
+      <g transform="translate(46 84)" stroke="#6FDCE9" stroke-width="2">
+        <circle cx="16" cy="16" r="10" fill="#155EEF"/>
+        <circle cx="67" cy="16" r="10" fill="#0891B2"/>
+        <circle cx="118" cy="16" r="10" fill="#F97316"/>
+        <path d="M26 16 H57 M77 16 H108 M22 24 L60 53 M112 24 L74 53"/>
+        <circle cx="67" cy="58" r="10" fill="#FFFFFF"/>
+      </g>
+      <text x="113" y="152" text-anchor="middle" fill="#BFD4FF" font-size="12">hard-pair boundary correction</text>
+    </g>
+
+    <g transform="translate(1252 225)">
+      <rect width="108" height="126" rx="22" fill="#FFFFFF" stroke="#C9D8EB"/>
+      <text x="54" y="45" text-anchor="middle" fill="#155EEF" font-size="34" font-weight="850">27</text>
+      <text x="54" y="70" text-anchor="middle" fill="#1F2937" font-size="15" font-weight="750">road states</text>
+      <text x="54" y="96" text-anchor="middle" fill="#64748B" font-size="12">single logits</text>
+    </g>
+  </g>
+
+  <g font-family="Inter, Segoe UI, Arial, sans-serif">
+    <rect x="284" y="503" width="890" height="34" rx="17" fill="#EAF1FF"/>
+    <text x="729" y="525" text-anchor="middle" fill="#36557E" font-size="13">Evidence flow: observe globally → measure locally → factorize semantics → couple only valid combinations</text>
+  </g>
+</svg>

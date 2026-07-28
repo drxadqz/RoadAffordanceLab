@@ -1,0 +1,30 @@
+name: Repository quality
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  public-contract:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          lfs: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Verify bilingual release contract
+        run: python scripts/check_repository_contract.py
+
+      - name: Compile public Python sources
+        run: python -m compileall -q src scripts/check_repository_contract.py
+

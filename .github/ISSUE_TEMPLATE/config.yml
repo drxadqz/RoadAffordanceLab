@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Reproduction documentation
+    url: https://github.com/drxadqz/RoadAffordanceLab/blob/main/docs/data_and_reproduction.md
+    about: Read the data, checkpoint, and environment contract before opening an issue.
