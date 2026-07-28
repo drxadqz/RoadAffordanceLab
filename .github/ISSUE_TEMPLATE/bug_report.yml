@@ -1,0 +1,37 @@
+name: Bug report
+description: Report a reproducible problem in training, evaluation, or documentation.
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for helping improve the project. Do not include private dataset paths, credentials, or API keys.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What happened, and what did you expect instead?
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Minimal reproduction
+      description: Include the command, public config, and the shortest steps that reproduce the issue.
+      render: shell
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: OS, Python, PyTorch, CUDA, GPU, commit SHA, and checkpoint SHA.
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant logs
+      description: Remove local absolute paths and secrets before pasting logs.
+      render: text
+

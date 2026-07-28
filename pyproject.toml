@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "friction-affordance-field"
 version = "0.1.0"
-description = "Heterogeneous weakly supervised visual road-state learning for calibrated friction-risk intervals"
+description = "Factor-aware, physics-guided visual road-surface recognition with auditable experiment provenance"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
@@ -21,6 +21,12 @@ dependencies = [
   "tensorboard",
   "timm",
 ]
+
+[project.urls]
+Homepage = "https://github.com/drxadqz/RoadAffordanceLab"
+Documentation = "https://github.com/drxadqz/RoadAffordanceLab/tree/main/docs"
+Repository = "https://github.com/drxadqz/RoadAffordanceLab.git"
+Issues = "https://github.com/drxadqz/RoadAffordanceLab/issues"
 
 [tool.setuptools.packages.find]
 where = ["src"]

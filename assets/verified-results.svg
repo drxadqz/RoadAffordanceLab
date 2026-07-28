@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="220" viewBox="0 0 1200 220" role="img" aria-labelledby="title desc">
+  <title id="title">Verified C3-FaRNet-S7 results</title>
+  <desc id="desc">Top-1 90.632 percent, Macro-F1 88.920 percent, weakest-class F1 75.693 percent, evaluated on 49,500 test images</desc>
+  <defs>
+    <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F7FAFF"/>
+      <stop offset="1" stop-color="#ECF7FA"/>
+    </linearGradient>
+  </defs>
+  <rect x="1" y="1" width="1198" height="218" rx="24" fill="url(#panel)" stroke="#D8E5F5"/>
+  <text x="50" y="42" fill="#1F2937" font-size="20" font-weight="700" font-family="Inter, Segoe UI, Arial, sans-serif">VERIFIED FULL-TEST EVIDENCE</text>
+  <text x="1150" y="42" text-anchor="end" fill="#64748B" font-size="14" font-family="Inter, Segoe UI, Arial, sans-serif">single model · single crop · no TTA · no ensemble</text>
+  <g transform="translate(50 66)" font-family="Inter, Segoe UI, Arial, sans-serif">
+    <g>
+      <rect width="250" height="116" rx="18" fill="#FFFFFF" stroke="#D9E4F3"/>
+      <rect width="8" height="116" rx="4" fill="#155EEF"/>
+      <text x="28" y="38" fill="#64748B" font-size="16">Top-1 accuracy</text>
+      <text x="28" y="82" fill="#155EEF" font-size="38" font-weight="800">90.632%</text>
+      <text x="28" y="103" fill="#94A3B8" font-size="13">27-class RSCD</text>
+    </g>
+    <g transform="translate(276)">
+      <rect width="250" height="116" rx="18" fill="#FFFFFF" stroke="#D9E4F3"/>
+      <rect width="8" height="116" rx="4" fill="#0891B2"/>
+      <text x="28" y="38" fill="#64748B" font-size="16">Macro-F1</text>
+      <text x="28" y="82" fill="#0891B2" font-size="38" font-weight="800">88.920%</text>
+      <text x="28" y="103" fill="#94A3B8" font-size="13">equal class weight</text>
+    </g>
+    <g transform="translate(552)">
+      <rect width="250" height="116" rx="18" fill="#FFFFFF" stroke="#D9E4F3"/>
+      <rect width="8" height="116" rx="4" fill="#F97316"/>
+      <text x="28" y="38" fill="#64748B" font-size="16">Weakest-class F1</text>
+      <text x="28" y="82" fill="#F97316" font-size="38" font-weight="800">75.693%</text>
+      <text x="28" y="103" fill="#94A3B8" font-size="13">water_concrete_slight</text>
+    </g>
+    <g transform="translate(828)">
+      <rect width="272" height="116" rx="18" fill="#071B45"/>
+      <rect width="8" height="116" rx="4" fill="#5EE3F0"/>
+      <text x="28" y="38" fill="#B8D3FF" font-size="16">Test images</text>
+      <text x="28" y="82" fill="#FFFFFF" font-size="38" font-weight="800">49,500</text>
+      <text x="28" y="103" fill="#B8D3FF" font-size="13">frozen historical protocol</text>
+    </g>
+  </g>
+</svg>
