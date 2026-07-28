@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1520" height="770" viewBox="0 0 1520 770" role="img">
+  <title>Architecture</title>
+  <rect width="1520" height="770" fill="#FFFFFF"/>
+  <text x="70.0" y="64.0" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="31" font-weight="760" fill="#172033" text-anchor="start" opacity="1.000">C3-FaRNet: evidence is structured before the final decision</text>
+  <text x="70.0" y="96.0" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="16" font-weight="400" fill="#64748B" text-anchor="start" opacity="1.000">Verified S7 implementation · arrows show data flow, dashed arrows show gated corrections</text>
+  <line x1="226.0" y1="350.0" x2="295.0" y2="350.0" stroke="#3B82F6" stroke-width="4" opacity="1.000"/>
+  <line x1="585.0" y1="350.0" x2="650.0" y2="350.0" stroke="#3B82F6" stroke-width="4" opacity="1.000"/>
+  <line x1="935.0" y1="350.0" x2="1000.0" y2="350.0" stroke="#3B82F6" stroke-width="4" opacity="1.000"/>
+  <line x1="1265.0" y1="350.0" x2="1330.0" y2="350.0" stroke="#3B82F6" stroke-width="4" opacity="1.000"/>
+  <line x1="440.0" y1="238.0" x2="440.0" y2="210.0" stroke="#22D3EE" stroke-width="3" opacity="1.000"/>
+  <line x1="440.0" y1="490.0" x2="440.0" y2="518.0" stroke="#22D3EE" stroke-width="3" opacity="1.000"/>
+  <line x1="770.0" y1="235.0" x2="770.0" y2="205.0" stroke="#F97316" stroke-width="3" opacity="1.000"/>
+  <line x1="770.0" y1="495.0" x2="770.0" y2="525.0" stroke="#F97316" stroke-width="3" opacity="1.000"/>
+  <line x1="1128.0" y1="235.0" x2="1128.0" y2="205.0" stroke="#8B5CF6" stroke-width="3" opacity="1.000" stroke-dasharray="8 7"/>
+  <line x1="1128.0" y1="495.0" x2="1128.0" y2="525.0" stroke="#8B5CF6" stroke-width="3" opacity="1.000" stroke-dasharray="8 7"/>
+  <rect x="60.0" y="284.0" width="166.0" height="132.0" rx="22" fill="#F7FAFC" stroke="#DCE6F2" stroke-width="2" opacity="1.000"/>
+  <text x="143.0" y="322.0" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="21" font-weight="750" fill="#172033" text-anchor="middle" opacity="1.000">Road image</text>
+  <text x="143.0" y="351.0" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="16" font-weight="400" fill="#64748B" text-anchor="middle" opacity="1.000">RGB · 192 × 192</text>
+  <text x="143.0" y="379.0" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="14" font-weight="400" fill="#64748B" text-anchor="middle" opacity="1.000">historical protocol</text>
+  <rect x="295.0" y="238.0" width="290.0" height="224.0" rx="24" fill="#EFF6FF" stroke="#9CC2F8" stroke-width="2" opacity="1.000"/>
+  <text x="440.0" y="282.0" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="23" font-weight="750" fill="#172033" text-anchor="middle" opacity="1.000">Visual carrier</text>
+  <text x="440.0" y="313.0" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="16" font-weight="400" fill="#64748B" text-anchor="middle" opacity="1.000">ConvNeXt-Tiny feature hierarchy</text>
+  <text x="440.0" y="342.0" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="16" font-weight="650" fill="#3B82F6" text-anchor="middle" opacity="1.000">+ gated tensor-coupling stem</text>
+  <text x="440.0" y="382.0" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="15" font-weight="400" fill="#64748B" text-anchor="middle" opacity="1.000">shape · texture · spatial context</text>
+  <text x="440.0" y="410.0" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="15" font-weight="400" fill="#64748B" text-anchor="middle" opacity="1.000">early/mid feature conditioning</text>
+  <rect x="650.0" y="235.0" width="285.0" height="230.0" rx="24" fill="#ECFEFF" stroke="#80DDEA" stroke-width="2" opacity="1.000"/>
+  <text x="792.0" y="277.0" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="23" font-weight="750" fill="#172033" text-anchor="middle" opacity="1.000">Factor evidence</text>
+  <text x="792.0" y="313.0" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="17" font-weight="700" fill="#087F8C" text-anchor="middle" opacity="1.000">condition</text>
+  <text x="792.0" y="342.0" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="17" font-weight="700" fill="#087F8C" text-anchor="middle" opacity="1.000">material</text>
+  <text x="792.0" y="371.0" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="17" font-weight="700" fill="#087F8C" text-anchor="middle" opacity="1.000">roughness</text>
+  <text x="792.0" y="415.0" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="15" font-weight="400" fill="#64748B" text-anchor="middle" opacity="1.000">single + pair + triple factors</text>
+  <rect x="1000.0" y="235.0" width="265.0" height="230.0" rx="24" fill="#FFF7ED" stroke="#FDBA74" stroke-width="2" opacity="1.000"/>
+  <text x="1132.0" y="277.0" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="23" font-weight="750" fill="#172033" text-anchor="middle" opacity="1.000">Coupled decision</text>
+  <text x="1132.0" y="316.0" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="16" font-weight="650" fill="#B45309" text-anchor="middle" opacity="1.000">factor tensor score</text>
+  <text x="1132.0" y="347.0" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="16" font-weight="650" fill="#B45309" text-anchor="middle" opacity="1.000">hard-pair error gate</text>
+  <text x="1132.0" y="378.0" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="16" font-weight="650" fill="#B45309" text-anchor="middle" opacity="1.000">calibrated correction</text>
+  <text x="1132.0" y="419.0" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="14" font-weight="400" fill="#64748B" text-anchor="middle" opacity="1.000">boundary-aware, not global rewrite</text>
+  <rect x="1330.0" y="284.0" width="130.0" height="132.0" rx="22" fill="#EAF3FF" stroke="#3B82F6" stroke-width="2" opacity="1.000"/>
+  <text x="1395.0" y="327.0" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="21" font-weight="760" fill="#3B82F6" text-anchor="middle" opacity="1.000">27-class</text>
+  <text x="1395.0" y="357.0" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="21" font-weight="760" fill="#3B82F6" text-anchor="middle" opacity="1.000">posterior</text>
+  <text x="1395.0" y="388.0" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="14" font-weight="400" fill="#64748B" text-anchor="middle" opacity="1.000">single crop</text>
+  <rect x="295.0" y="128.0" width="290.0" height="82.0" rx="18" fill="#F0FDFA" stroke="#99F6E4" stroke-width="1.0" opacity="1.000"/>
+  <text x="440.0" y="160.0" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="750" fill="#0F766E" text-anchor="middle" opacity="1.000">Physics evidence</text>
+  <text x="440.0" y="187.0" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="14" font-weight="400" fill="#64748B" text-anchor="middle" opacity="1.000">wetness · glare · texture loss</text>
+  <rect x="295.0" y="518.0" width="290.0" height="92.0" rx="18" fill="#F0FDFA" stroke="#99F6E4" stroke-width="1.0" opacity="1.000"/>
+  <text x="440.0" y="550.0" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="750" fill="#0F766E" text-anchor="middle" opacity="1.000">Local + semantic fields</text>
+  <text x="440.0" y="578.0" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="14" font-weight="400" fill="#64748B" text-anchor="middle" opacity="1.000">regional evidence and cue selection</text>
+  <rect x="650.0" y="125.0" width="285.0" height="80.0" rx="18" fill="#FFF7ED" stroke="#FED7AA" stroke-width="1.0" opacity="1.000"/>
+  <text x="792.0" y="157.0" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="750" fill="#B45309" text-anchor="middle" opacity="1.000">Structured label graph</text>
+  <text x="792.0" y="183.0" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="14" font-weight="400" fill="#64748B" text-anchor="middle" opacity="1.000">legal states + hard boundaries</text>
+  <rect x="650.0" y="525.0" width="285.0" height="92.0" rx="18" fill="#FFF7ED" stroke="#FED7AA" stroke-width="1.0" opacity="1.000"/>
+  <text x="792.0" y="557.0" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="750" fill="#B45309" text-anchor="middle" opacity="1.000">Selective optimization</text>
+  <text x="792.0" y="585.0" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="14" font-weight="400" fill="#64748B" text-anchor="middle" opacity="1.000">1.09M trainable / 32.49M total</text>
+  <rect x="1000.0" y="123.0" width="265.0" height="82.0" rx="18" fill="#F5F3FF" stroke="#C4B5FD" stroke-width="1.0" opacity="1.000"/>
+  <text x="1132.0" y="155.0" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="750" fill="#6D28D9" text-anchor="middle" opacity="1.000">Anchor protection</text>
+  <text x="1132.0" y="182.0" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="14" font-weight="400" fill="#64748B" text-anchor="middle" opacity="1.000">consistency + no-flip constraints</text>
+  <rect x="1000.0" y="525.0" width="265.0" height="92.0" rx="18" fill="#F5F3FF" stroke="#C4B5FD" stroke-width="1.0" opacity="1.000"/>
+  <text x="1132.0" y="557.0" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="750" fill="#6D28D9" text-anchor="middle" opacity="1.000">Reliable-source router</text>
+  <text x="1132.0" y="585.0" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="14" font-weight="400" fill="#64748B" text-anchor="middle" opacity="1.000">strict top-k and margin gating</text>
+  <rect x="60.0" y="664.0" width="1400.0" height="64.0" rx="18" fill="#F8FAFC" stroke="#DCE6F2" stroke-width="1.0" opacity="1.000"/>
+  <text x="760.0" y="704.0" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="16" font-weight="600" fill="#64748B" text-anchor="middle" opacity="1.000">Research boundary: this is visual road-state / friction-affordance estimation, not direct tire–road friction measurement.</text>
+</svg>

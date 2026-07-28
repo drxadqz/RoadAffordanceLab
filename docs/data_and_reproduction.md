@@ -61,14 +61,14 @@ python test.py \
 
 ## Reproduction Note
 
-The exact verified historical S7 run used warm-start checkpoints produced by earlier local screening runs. The binary checkpoints are not included because GitHub is not suitable for large experiment weights. The released source code contains the complete architecture and training/evaluation pipeline.
+The exact verified historical S7 run used warm-start checkpoints produced by earlier screening runs. The selected final, parent, and teacher artifacts are now tracked with Git LFS under `checkpoints/`; run `git lfs pull` before evaluation or continuation training. Their sizes and SHA256 hashes are listed in `results/s7_lineage/checkpoint_manifest.json`.
 
-For exact bit-level reproduction, provide the same warm-start checkpoints in the config fields:
+The portable public config already points to the uploaded artifacts:
 
 ```yaml
 train:
-  resume_from: /path/to/anchor/best_checkpoint.pth
-  teacher_checkpoint: /path/to/teacher/best.pt
+  resume_from: checkpoints/c3_farnet_errorgate_paircal_screen_20260703/best_checkpoint.pth
+  teacher_checkpoint: checkpoints/screen_dry_concrete_vor_residual_scale012_lr1e3_s8k_from_anchor/best.pt
 ```
 
-For a clean public run, leave those fields empty and train from the released config.
+This reproduces the historical continuation recipe, not a from-scratch training claim. The full ancestry and the distinction between the self-contained S7 checkpoint and the parent-plus-router inference variant are documented in `docs/s7_training_lineage.md`.

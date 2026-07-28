@@ -1,5 +1,7 @@
 # Current Verified Full-Test Result
 
+![Verified C3-FaRNet S7 result overview](../assets/results-overview.svg)
+
 The current best self-contained completed S7 checkpoint is:
 
 ```text

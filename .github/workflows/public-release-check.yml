@@ -1,0 +1,32 @@
+name: Public release check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  evidence-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source without large LFS weights
+        uses: actions/checkout@v4
+        with:
+          lfs: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Rebuild deterministic README assets
+        run: python scripts/build_public_assets.py
+
+      - name: Verify generated assets are committed
+        run: git diff --exit-code -- assets
+
+      - name: Audit result payloads and documentation links
+        run: python scripts/verify_public_release.py

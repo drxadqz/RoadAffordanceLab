@@ -26,6 +26,11 @@ wandb/
 !results/s7_lineage/formal_fullmanifest_s7/train_stdout_20260709_074914.log
 !results/s7_lineage/formal_fullmanifest_s7/train_stderr_20260709_074914.log
 *.tmp
+.env
+.env.*
+!.env.example
+configs/data/local_paths.yaml
+assets/*.preview.png
 data/manifests_full/*.csv
 data/raw/
 data/datasets/

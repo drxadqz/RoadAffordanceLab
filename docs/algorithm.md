@@ -19,7 +19,7 @@ The model is therefore designed around factor coupling, not only flat classifica
 
 ## 2. Input
 
-Each image is resized to 192 x 192 by letterbox resizing. Letterbox resizing keeps the original aspect ratio and pads the remaining area, which is safer for RSCD because many images are small road patches rather than full forward-driving scenes.
+The verified historical run resizes each image to 192 x 192 with letterbox padding. This preprocessing is preserved here because changing it would invalidate exact checkpoint reproduction. Later audits showed that fixed padding can become a shortcut feature, so current from-scratch research uses native 360 x 240 geometry and treats padding removal as a retraining-time change rather than an inference patch.
 
 ## 3. Label Factorization
 

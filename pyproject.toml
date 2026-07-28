@@ -5,9 +5,25 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "friction-affordance-field"
 version = "0.1.0"
-description = "Heterogeneous weakly supervised visual road-state learning for calibrated friction-risk intervals"
+description = "Factor-aware, physics-guided road-surface recognition with auditable PyTorch/CUDA evaluation"
 readme = "README.md"
 requires-python = ">=3.10"
+keywords = [
+  "computer-vision",
+  "fine-grained-classification",
+  "road-surface",
+  "physics-guided-learning",
+  "pytorch",
+  "reproducible-research",
+]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
 dependencies = [
   "torch",
   "torchvision",
@@ -21,6 +37,12 @@ dependencies = [
   "tensorboard",
   "timm",
 ]
+
+[project.urls]
+Homepage = "https://github.com/drxadqz/rp"
+Repository = "https://github.com/drxadqz/rp"
+Issues = "https://github.com/drxadqz/rp/issues"
+Documentation = "https://github.com/drxadqz/rp#readme"
 
 [tool.setuptools.packages.find]
 where = ["src"]

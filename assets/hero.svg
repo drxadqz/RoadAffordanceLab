@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="500" viewBox="0 0 1400 500" role="img">
+  <title>Hero</title>
+  <rect width="1400" height="500" fill="#07152D"/>
+  <defs>
+  <linearGradient id="hero-bg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#07152D"/><stop offset="1" stop-color="#123A67"/>
+  </linearGradient>
+  <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#22D3EE"/><stop offset="1" stop-color="#3B82F6"/>
+  </linearGradient>
+  <filter id="glow"><feGaussianBlur stdDeviation="18"/></filter>
+</defs>
+<rect width="1400" height="500" fill="url(#hero-bg)"/>
+<circle cx="1220" cy="90" r="155" fill="#22D3EE" opacity="0.11" filter="url(#glow)"/>
+<circle cx="1090" cy="430" r="190" fill="#3B82F6" opacity="0.15" filter="url(#glow)"/>
+  <rect x="70.0" y="60.0" width="202.0" height="38.0" rx="19" fill="#173B65" stroke="#2D5A88" stroke-width="1.0" opacity="1.000"/>
+  <text x="171.0" y="86.0" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="15" font-weight="700" fill="#22D3EE" text-anchor="middle" opacity="1.000">RESEARCH × SYSTEMS</text>
+  <text x="70.0" y="166.0" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="66" font-weight="760" fill="#FFFFFF" text-anchor="start" opacity="1.000">C3-FaRNet</text>
+  <text x="70.0" y="214.0" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="28" font-weight="500" fill="#CDE6FF" text-anchor="start" opacity="1.000">Factor-aware road surface intelligence</text>
+  <text x="70.0" y="263.0" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="20" font-weight="400" fill="#9FB8D5" text-anchor="start" opacity="1.000">Physics-guided representation learning for coupled road states</text>
+  <text x="70.0" y="298.0" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="20" font-weight="400" fill="#9FB8D5" text-anchor="start" opacity="1.000">with auditable PyTorch/CUDA evaluation.</text>
+  <rect x="70.0" y="354.0" width="132.0" height="48.0" rx="14" fill="#102B4D" stroke="#2B527C" stroke-width="1.0" opacity="1.000"/>
+  <text x="136.0" y="385.0" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="16" font-weight="650" fill="#D9ECFF" text-anchor="middle" opacity="1.000">27 classes</text>
+  <rect x="222.0" y="354.0" width="236.0" height="48.0" rx="14" fill="#102B4D" stroke="#2B527C" stroke-width="1.0" opacity="1.000"/>
+  <text x="340.0" y="385.0" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="16" font-weight="650" fill="#D9ECFF" text-anchor="middle" opacity="1.000">958,941 train frames</text>
+  <rect x="478.0" y="354.0" width="246.0" height="48.0" rx="14" fill="#102B4D" stroke="#2B527C" stroke-width="1.0" opacity="1.000"/>
+  <text x="601.0" y="385.0" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="16" font-weight="650" fill="#D9ECFF" text-anchor="middle" opacity="1.000">49,500 full-test images</text>
+  <text x="1020.0" y="74.0" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="16" font-weight="750" fill="#8BB7E4" text-anchor="middle" opacity="1.000">COUPLED EVIDENCE</text>
+  <rect x="835.0" y="105.0" width="230.0" height="68.0" rx="16" fill="#11395C" stroke="#2C6B8F" stroke-width="1.0" opacity="1.000"/>
+  <rect x="835.0" y="195.0" width="230.0" height="68.0" rx="16" fill="#11395C" stroke="#2C6B8F" stroke-width="1.0" opacity="1.000"/>
+  <rect x="835.0" y="285.0" width="230.0" height="68.0" rx="16" fill="#11395C" stroke="#2C6B8F" stroke-width="1.0" opacity="1.000"/>
+  <text x="950.0" y="133.0" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="700" fill="#FFFFFF" text-anchor="middle" opacity="1.000">Condition</text>
+  <text x="950.0" y="157.0" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="13" font-weight="400" fill="#9FC6E8" text-anchor="middle" opacity="1.000">dry · wet · water · snow · ice</text>
+  <text x="950.0" y="223.0" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="700" fill="#FFFFFF" text-anchor="middle" opacity="1.000">Material</text>
+  <text x="950.0" y="247.0" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="13" font-weight="400" fill="#9FC6E8" text-anchor="middle" opacity="1.000">asphalt · concrete · mud · gravel</text>
+  <text x="950.0" y="313.0" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="700" fill="#FFFFFF" text-anchor="middle" opacity="1.000">Roughness</text>
+  <text x="950.0" y="337.0" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="13" font-weight="400" fill="#9FC6E8" text-anchor="middle" opacity="1.000">smooth · slight · severe</text>
+  <line x1="1065.0" y1="139.0" x2="1120.0" y2="229.0" stroke="#22D3EE" stroke-width="3" opacity="1.000"/>
+  <line x1="1065.0" y1="229.0" x2="1120.0" y2="229.0" stroke="#22D3EE" stroke-width="3" opacity="1.000"/>
+  <line x1="1065.0" y1="319.0" x2="1120.0" y2="229.0" stroke="#22D3EE" stroke-width="3" opacity="1.000"/>
+  <rect x="1120.0" y="169.0" width="208.0" height="120.0" rx="24" fill="#153F70" stroke="#3B82F6" stroke-width="2" opacity="1.000"/>
+  <text x="1224.0" y="213.0" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="23" font-weight="750" fill="#FFFFFF" text-anchor="middle" opacity="1.000">Coupled</text>
+  <text x="1224.0" y="244.0" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="23" font-weight="750" fill="#FFFFFF" text-anchor="middle" opacity="1.000">factor reasoning</text>
+  <text x="1224.0" y="271.0" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="15" font-weight="600" fill="#22D3EE" text-anchor="middle" opacity="1.000">→ 27 road states</text>
+  <rect x="835.0" y="408.0" width="493.0" height="42.0" rx="13" fill="#0B2847" stroke="#265782" stroke-width="1.0" opacity="1.000"/>
+  <text x="1081.0" y="435.0" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="16" font-weight="650" fill="#C6E4FF" text-anchor="middle" opacity="1.000">Representation · Calibration · Reproducibility</text>
+</svg>

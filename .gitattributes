@@ -3,3 +3,9 @@
 recovery/**/*.csv.gz filter=lfs diff=lfs merge=lfs -text
 recovery/**/*.pt filter=lfs diff=lfs merge=lfs -text
 recovery/**/*.pth filter=lfs diff=lfs merge=lfs -text
+recovery/historical_source/** linguist-vendored
+recovery/**/*.csv linguist-generated
+recovery/**/*.json linguist-generated
+results/**/*.csv linguist-generated
+results/**/*.json linguist-generated
+assets/*.svg linguist-generated
