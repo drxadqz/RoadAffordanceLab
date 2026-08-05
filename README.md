@@ -2,7 +2,7 @@
 
 ![RoadAffordanceLab banner](assets/road-affordance-lab-banner.svg)
 
-[**English**](README.md) | [**简体中文**](README_zh-CN.md) | [Architecture](docs/algorithm.md) | [Reproducibility](docs/data_and_reproduction.md) | [Evidence](docs/results_current_best.md)
+[**English**](README.md) | [**简体中文**](README_zh-CN.md) | [Architecture](docs/algorithm.md) | [DREL](docs/drel_algorithm.md) | [Reproducibility](docs/data_and_reproduction.md) | [Evidence](docs/results_current_best.md)
 
 [![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)](pyproject.toml)
 [![PyTorch](https://img.shields.io/badge/PyTorch-CUDA-EE4C2C?logo=pytorch&logoColor=white)](environment-faf-paper.yml)
@@ -142,9 +142,26 @@ These are the same engineering concerns that matter in larger model systems: con
 
 - **Released:** C3-FaRNet-S7 and its verified full-test evidence.
 - **Recovered:** historical manifests, source snapshot, environment records, and the surviving checkpoint chain.
-- **Active research:** ARCQ-style task-specific backbones and matched-control studies. Development-subset results are intentionally excluded from the headline table until they pass a frozen, directly comparable protocol.
+- **Released as validation-only research code:** the clean DREL-E B `component_full` production candidate, its frozen D350 specification, tests, machine-readable three-seed validation evidence, and full bilingual explanation.
+- **Active research:** roughness-targeted DREL follow-up studies. An unfinished route is not merged into the production model until it passes its frozen gate.
 
 The separation is deliberate: attractive plots are useful, but only frozen evidence should become a public performance claim.
+
+### DREL production candidate (D350 validation only)
+
+The newly released [`DREL-E B component_full`](docs/drel_algorithm.md) implementation is a 2.76M-parameter from-scratch classifier with a one-way directional/radial evidence ledger, moment-preserving transitions, regional mean/deviation blocks, constrained matched-response filters, and a bounded `0.25 × tanh` evidence write.
+
+At equal Gate8 D350 validation budget, its three-seed mean is above the frozen single-seed RSPNet-M/L envelope on eight of nine tracked metrics. The remaining exception is roughness: `0.586420` versus `0.608889` (−2.247 percentage points). This is a validation-screen result, not a historical 49,500-image formal-test claim, and it does not replace the S7 table above.
+
+```python
+import torch
+from friction_affordance.models.drel import build_drel_component_full
+
+model = build_drel_component_full(num_classes=27, head_init_seed=970027)
+logits = model(torch.randn(2, 3, 360, 240))
+```
+
+Read the [complete DREL algorithm guide](docs/drel_algorithm.md) and the [claim-safe validation evidence](docs/drel_validation_evidence.md).
 
 ## Documentation
 
@@ -153,6 +170,8 @@ The separation is deliberate: attractive plots are useful, but only frozen evide
 | Method and architecture | [Architecture](docs/algorithm.md) | [算法与架构](docs/algorithm_zh.md) |
 | Data and reproduction | [Reproducibility](docs/data_and_reproduction.md) | [数据与复现](docs/data_and_reproduction_zh-CN.md) |
 | Verified evidence | [Results](docs/results_current_best.md) | [验证结果](docs/results_current_best_zh-CN.md) |
+| DREL production algorithm | [DREL guide](docs/drel_algorithm.md) | [DREL 完整说明](docs/drel_algorithm_zh-CN.md) |
+| DREL validation evidence | [DREL evidence](docs/drel_validation_evidence.md) | [DREL 验证证据](docs/drel_validation_evidence_zh-CN.md) |
 | Checkpoint ancestry | [Training lineage](docs/s7_training_lineage.md) | — |
 | Release inventory | [Inventory](docs/s7_release_inventory.md) | — |
 | Recovery boundary | [Recovery status](recovery/RECOVERY_STATUS.md) | — |

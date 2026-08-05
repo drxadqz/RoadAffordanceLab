@@ -2,7 +2,7 @@
 
 ![RoadAffordanceLab 横幅](assets/road-affordance-lab-banner.svg)
 
-[**English**](README.md) | [**简体中文**](README_zh-CN.md) | [架构详解](docs/algorithm_zh.md) | [复现指南](docs/data_and_reproduction_zh-CN.md) | [实验证据](docs/results_current_best_zh-CN.md)
+[**English**](README.md) | [**简体中文**](README_zh-CN.md) | [架构详解](docs/algorithm_zh.md) | [DREL](docs/drel_algorithm_zh-CN.md) | [复现指南](docs/data_and_reproduction_zh-CN.md) | [实验证据](docs/results_current_best_zh-CN.md)
 
 [![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)](pyproject.toml)
 [![PyTorch](https://img.shields.io/badge/PyTorch-CUDA-EE4C2C?logo=pytorch&logoColor=white)](environment-faf-paper.yml)
@@ -142,9 +142,26 @@ python train.py --config configs/c3_farnet/current_best_s7_public.yaml
 
 - **已经发布**：C3-FaRNet-S7 及其全量测试证据；
 - **已经恢复**：历史 manifest、源码快照、环境记录和仍可获得的 checkpoint 链；
-- **正在研究**：ARCQ 任务定制主干及其参数匹配对照。开发子集结果在通过冻结且可直接比较的协议之前，不会进入首页正式成绩表。
+- **以 validation-only 研究代码发布**：干净的 DREL-E B `component_full` 生产候选、冻结 D350 规格、测试、机器可读三种子验证证据和完整双语解释；
+- **正在研究**：针对 roughness 的 DREL 后续单变量路线。没有通过冻结门槛的实验不会提前合入生产模型。
 
 这种分离是有意为之：好看的图有展示价值，但只有冻结后的证据才应该成为公开性能结论。
+
+### DREL 生产候选（仅 D350 validation）
+
+新发布的 [`DREL-E B component_full`](docs/drel_algorithm_zh-CN.md) 是一个约 276 万参数的从零训练分类器。它包含单向方向/径向证据账本、矩保持过渡、区域均值/偏离块、受约束匹配响应滤波器，以及 `0.25 × tanh` 有界证据写入。
+
+在相同 Gate8 D350 validation 预算下，DREL 的三种子均值在九个冻结指标中的八个高于单种子 RSPNet-M/L envelope。唯一例外是 roughness：`0.586420` 对 `0.608889`，低 2.247 个百分点。该结果是 validation screen，不是历史 49,500 张正式 test 结论，也不会替换上方 S7 正式成绩表。
+
+```python
+import torch
+from friction_affordance.models.drel import build_drel_component_full
+
+model = build_drel_component_full(num_classes=27, head_init_seed=970027)
+logits = model(torch.randn(2, 3, 360, 240))
+```
+
+请阅读[DREL 完整算法说明](docs/drel_algorithm_zh-CN.md)和[严格结论边界下的验证证据](docs/drel_validation_evidence_zh-CN.md)。
 
 ## 文档导航
 
@@ -153,6 +170,8 @@ python train.py --config configs/c3_farnet/current_best_s7_public.yaml
 | 方法与架构 | [Architecture](docs/algorithm.md) | [算法与架构](docs/algorithm_zh.md) |
 | 数据与复现 | [Reproducibility](docs/data_and_reproduction.md) | [数据与复现](docs/data_and_reproduction_zh-CN.md) |
 | 已验证证据 | [Results](docs/results_current_best.md) | [验证结果](docs/results_current_best_zh-CN.md) |
+| DREL 生产算法 | [DREL guide](docs/drel_algorithm.md) | [DREL 完整说明](docs/drel_algorithm_zh-CN.md) |
+| DREL 验证证据 | [DREL evidence](docs/drel_validation_evidence.md) | [DREL 验证证据](docs/drel_validation_evidence_zh-CN.md) |
 | Checkpoint 谱系 | [Training lineage](docs/s7_training_lineage.md) | — |
 | 发布清单 | [Inventory](docs/s7_release_inventory.md) | — |
 | 恢复边界 | [Recovery status](recovery/RECOVERY_STATUS.md) | — |

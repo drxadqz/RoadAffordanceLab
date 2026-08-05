@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "algorithm": "DREL-E B component_full",
+  "evidence_status": "D350 validation only",
+  "test_data_accessed": false,
+  "formal_test_claim": false,
+  "protocol": {
+    "train_samples": 9450,
+    "validation_samples": 1350,
+    "input_tensor": "B x 3 x 360 x 240",
+    "seeds": [97, 197, 297],
+    "objective": "cross_entropy_only",
+    "augmentation": false,
+    "teacher": false,
+    "pretraining": false,
+    "batch_size": 16,
+    "gradient_accumulation_steps": 4,
+    "cosine_horizon_epochs": 30,
+    "evaluation_precision": "independent FP32 validation"
+  },
+  "metric_definitions": {
+    "score": "0.4 * top1 + 0.4 * macro_f1 + 0.2 * bottom5_f1",
+    "hard_pair_1": "water_concrete_slight vs water_concrete_severe",
+    "hard_pair_2": "water_concrete_slight vs wet_concrete_slight"
+  },
+  "gate8": {
+    "per_seed": {
+      "97": {"top1": 0.334074, "macro_f1": 0.320235, "bottom5_f1": 0.172509, "min_class_f1": 0.155844, "wcs_f1": 0.212766, "roughness": 0.568148, "hard_pair_1": 0.22, "hard_pair_2": 0.23, "score": 0.296226},
+      "197": {"top1": 0.343704, "macro_f1": 0.328804, "bottom5_f1": 0.186541, "min_class_f1": 0.151899, "wcs_f1": 0.342342, "roughness": 0.611111, "hard_pair_1": 0.32, "hard_pair_2": 0.39, "score": 0.306311},
+      "297": {"top1": 0.348148, "macro_f1": 0.330983, "bottom5_f1": 0.173478, "min_class_f1": 0.166667, "wcs_f1": 0.177215, "roughness": 0.58, "hard_pair_1": 0.16, "hard_pair_2": 0.22, "score": 0.306348}
+    },
+    "mean": {"top1": 0.341975, "macro_f1": 0.326674, "bottom5_f1": 0.177509, "min_class_f1": 0.158137, "wcs_f1": 0.244108, "roughness": 0.58642, "hard_pair_1": 0.233333, "hard_pair_2": 0.28, "score": 0.302962},
+    "sample_std": {"top1": 0.007194, "macro_f1": 0.005681, "bottom5_f1": 0.007837, "min_class_f1": 0.007646, "wcs_f1": 0.086911, "roughness": 0.022189, "hard_pair_1": 0.080829, "hard_pair_2": 0.095394, "score": 0.005834}
+  },
+  "rspnet_gate8_envelope": {
+    "reference_seeds": [97],
+    "construction": "per-column maximum of frozen RSPNet-M and RSPNet-L",
+    "metrics": {"top1": 0.322963, "macro_f1": 0.309301, "bottom5_f1": 0.172349, "min_class_f1": 0.126582, "wcs_f1": 0.227273, "roughness": 0.608889, "hard_pair_1": 0.19, "hard_pair_2": 0.26, "score": 0.280691}
+  },
+  "gate8_drel_mean_minus_rspnet_envelope": {"top1": 0.019012, "macro_f1": 0.017373, "bottom5_f1": 0.00516, "min_class_f1": 0.031555, "wcs_f1": 0.016835, "roughness": -0.022469, "hard_pair_1": 0.043333, "hard_pair_2": 0.02, "score": 0.022271},
+  "gate30": {
+    "comparison_warning": "No equal-budget RSPNet Gate30 reference exists; do not use Gate30 to claim fair superiority over RSPNet Gate8.",
+    "per_seed": {
+      "97": {"top1": 0.385185, "macro_f1": 0.37854, "bottom5_f1": 0.204044, "min_class_f1": 0.144928, "wcs_f1": 0.265306, "roughness": 0.615556, "score": 0.346299},
+      "197": {"top1": 0.385185, "macro_f1": 0.383431, "bottom5_f1": 0.25215, "min_class_f1": 0.146341, "wcs_f1": 0.296875, "roughness": 0.627407, "score": 0.357877},
+      "297": {"top1": 0.392593, "macro_f1": 0.386616, "bottom5_f1": 0.215188, "min_class_f1": 0.164384, "wcs_f1": 0.339623, "roughness": 0.625926, "score": 0.354721}
+    },
+    "mean": {"top1": 0.387654, "macro_f1": 0.382863, "bottom5_f1": 0.223794, "min_class_f1": 0.151884, "wcs_f1": 0.300601, "roughness": 0.622963, "score": 0.352966},
+    "sample_std": {"top1": 0.004274, "macro_f1": 0.004057, "bottom5_f1": 0.025005, "min_class_f1": 0.010711, "wcs_f1": 0.037233, "roughness": 0.006535, "score": 0.005961}
+  },
+  "regional_deletion_gate30": {
+    "decision": "REGIONAL_RETAINED",
+    "all_hurdles_required": true,
+    "per_seed_score_hurdle": {"threshold": 0.002, "seed_197_delta": 0.0005, "seed_297_delta": -0.007, "passed": false},
+    "mean_macro_f1_hurdle": {"threshold": -0.001, "observed_delta": -0.002687, "passed": false},
+    "mean_bottom5_hurdle": {"threshold": -0.005, "observed_delta": 0.01096, "passed": true}
+  }
+}

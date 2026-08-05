@@ -1,0 +1,61 @@
+# Public, path-free specification of the frozen DREL-E B component_full run.
+# This file records the architecture and experiment contract. Dataset manifest
+# paths remain local and are intentionally not embedded in a public config.
+
+algorithm:
+  name: drel_e_b_component_full
+  implementation: friction_affordance.models.drel.build_drel_component_full
+  evidence_status: d350_validation_only
+  formal_test_claim: false
+
+model:
+  num_classes: 27
+  embedding_dim: 320
+  head: linear
+  head_output_norm: false
+  head_dropout: 0.0
+  pretrained: false
+  semantic_channels: [48, 96, 192, 320]
+  semantic_depths: [1, 2, 5, 2]
+  ledger_channels: [16, 24, 32, 48]
+  response_kernel_sizes: [7, 5, 3, 3]
+  group_width: 8
+  orientations: 4
+  simplex_smoothing: 0.05
+  drop_path_rate: 0.10
+  semantic_expansion: 2
+  evidence_write_bound: 0.25
+  backbone_parameters: 2751694
+  classifier_parameters: 2760361
+
+data:
+  subset: D350
+  train_samples: 9450
+  validation_samples: 1350
+  test_samples_accessed: 0
+  input_height: 360
+  input_width: 240
+  resize_mode: native
+  seeds: [97, 197, 297]
+
+training:
+  initialization: from_scratch
+  objective: cross_entropy_only
+  augmentation: false
+  teacher: false
+  pretraining: false
+  batch_size: 16
+  gradient_accumulation_steps: 4
+  effective_batch_size: 64
+  optimizer: AdamW
+  schedule: 30_epoch_cosine_horizon
+  validation_gates: [3, 8, 30]
+
+evidence_boundary:
+  fair_rspnet_comparison_gate: 8
+  rspnet_reference_seeds: [97]
+  drel_seeds: [97, 197, 297]
+  warning: >-
+    Gate30 DREL values are convergence evidence, not a fair superiority claim
+    against the Gate8 RSPNet reference. No development proxy-test or historical
+    49,500-image formal test was accessed for DREL selection.

@@ -24,8 +24,17 @@ REQUIRED_FILES = (
     "docs/data_and_reproduction_zh-CN.md",
     "docs/results_current_best.md",
     "docs/results_current_best_zh-CN.md",
+    "docs/drel_algorithm.md",
+    "docs/drel_algorithm_zh-CN.md",
+    "docs/drel_validation_evidence.md",
+    "docs/drel_validation_evidence_zh-CN.md",
     "results/current_best_s7/metrics_summary.json",
+    "results/drel_d350_validation/metrics_summary.json",
     "configs/c3_farnet/current_best_s7_public.yaml",
+    "configs/drel/component_full_d350.yaml",
+    "src/friction_affordance/models/drel.py",
+    "tests/test_drel.py",
+    "examples/drel_quickstart.py",
 )
 
 PUBLIC_MARKDOWN = (
@@ -33,6 +42,10 @@ PUBLIC_MARKDOWN = (
     ROOT / "README_zh-CN.md",
     ROOT / "docs" / "data_and_reproduction_zh-CN.md",
     ROOT / "docs" / "results_current_best_zh-CN.md",
+    ROOT / "docs" / "drel_algorithm.md",
+    ROOT / "docs" / "drel_algorithm_zh-CN.md",
+    ROOT / "docs" / "drel_validation_evidence.md",
+    ROOT / "docs" / "drel_validation_evidence_zh-CN.md",
 )
 
 MACHINE_PATH_PATTERNS = (
@@ -112,6 +125,27 @@ def check_headline_evidence(errors: list[str]) -> None:
                 errors.append(f"{readme.name} headline is missing evidence value {value}")
 
 
+def check_drel_evidence(errors: list[str]) -> None:
+    path = ROOT / "results/drel_d350_validation/metrics_summary.json"
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    if payload.get("test_data_accessed") is not False:
+        errors.append("DREL evidence must explicitly preserve the test-data firewall")
+    if payload.get("formal_test_claim") is not False:
+        errors.append("DREL D350 validation must not be presented as a formal-test claim")
+
+    gate8 = payload["gate8"]["mean"]
+    rspnet = payload["rspnet_gate8_envelope"]["metrics"]
+    expected = {
+        f"{float(gate8['roughness']):.6f}",
+        f"{float(rspnet['roughness']):.6f}",
+    }
+    for readme in (ROOT / "README.md", ROOT / "README_zh-CN.md"):
+        text = readme.read_text(encoding="utf-8")
+        for value in expected:
+            if value not in text:
+                errors.append(f"{readme.name} DREL summary is missing evidence value {value}")
+
+
 def main() -> int:
     errors: list[str] = []
     check_required_files(errors)
@@ -120,6 +154,7 @@ def main() -> int:
     check_machine_paths(errors)
     check_svg_assets(errors)
     check_headline_evidence(errors)
+    check_drel_evidence(errors)
     if errors:
         print("Repository contract check failed:", file=sys.stderr)
         for error in errors:
