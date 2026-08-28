@@ -1,0 +1,30 @@
+{
+  "purpose": "post-hoc protocol comparison; not model or transform selection",
+  "model": "DREL-QRFME",
+  "checkpoint": "checkpoints/drel_qrfme_epoch097/best_checkpoint.pth",
+  "checkpoint_sha256": "72c2c2cd34545dcc1e22d5c89d43d1c79b3278a3edd7bc5857e0ab0a493dff55",
+  "checkpoint_epoch": 97,
+  "test_manifest": "private RSCD official-test manifest (not redistributed)",
+  "test_manifest_sha256": "7e1b2c6e06eb956fc097b3412cbfb453e98990ffd3754a6a10bf89de3c8589c7",
+  "test_samples": 49500,
+  "transform": {
+    "resize": [
+      224,
+      224
+    ],
+    "preserve_aspect_ratio": false,
+    "center_crop": false,
+    "normalization_mean": [
+      0.485,
+      0.456,
+      0.406
+    ],
+    "normalization_std": [
+      0.229,
+      0.224,
+      0.225
+    ]
+  },
+  "comparison_target": "YLong-maker/RSPNet released Classification/test",
+  "primary_frozen_result_remains_center_crop": true
+}

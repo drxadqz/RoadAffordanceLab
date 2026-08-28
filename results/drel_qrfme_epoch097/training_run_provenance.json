@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "publication_note": "Sanitized public export of the server run provenance. Machine-specific executable, dataset, repository, and output paths were removed; hashes and effective dataset statistics are unchanged.",
+  "original_provenance_sha256": "a2ec2abd37f5a9f7075fc833f1205fe492a63beb5ccf13a8200c4d9355562899",
+  "created_utc": "2026-08-23T04:29:52.092705+00:00",
+  "seed": 97,
+  "config": {
+    "resolved_sha256": "d00d2089a00972811e377fcf0d788112068606fb293cd25ddfd5fc1b3810255c",
+    "source_sha256": "6fec3c5032d1f0be25ee1e75fe1a1ccdf8e65295ec208f94fbe445987cb5e795"
+  },
+  "datasets": {
+    "train": {
+      "rows": 958941,
+      "ordered_rows_sha256": "a71af6d001a362ba6100e2b041231adf400bc4f1f4850c4909888e2fbd065b49",
+      "configured_manifest_sha256": "291da68330eca79bce5598aaf956c543bf6db7929f4a9a40c39b31d6ae96028f",
+      "sampling": "natural full-data sampling",
+      "batch_size": 64,
+      "num_workers": 2
+    },
+    "validation": {
+      "rows": 19860,
+      "ordered_rows_sha256": "510ab2cbfe67bc140fa6f55562aa7b3fea4815b759938bc3327aaa45f0e8cd21",
+      "configured_manifest_sha256": "ea229505cae6950dac43d49606c1cb3123f2a2cd305f80bf23415c83eac48129",
+      "sampling": "sequential",
+      "batch_size": 64,
+      "num_workers": 0
+    },
+    "official_test": {
+      "rows": 49500,
+      "manifest_sha256": "7e1b2c6e06eb956fc097b3412cbfb453e98990ffd3754a6a10bf89de3c8589c7",
+      "train_basename_overlap": 0,
+      "validation_basename_overlap": 0,
+      "used_for_checkpoint_selection": false
+    }
+  },
+  "model": {
+    "model_class": "drel_qrfme.models.drel_qrfme_model.DRELRTSurfaceClassifier",
+    "architecture_version": "drel_rt_rfme_v1",
+    "total_parameters": 26145426,
+    "trainable_parameters": 26145426,
+    "parameter_schema_sha256": "031ea28b8f881eb9d575f83adc34ace4670ea220235e6ee445f5ac7ce80d9ed6",
+    "pretrained": false
+  },
+  "runtime": {
+    "platform": "Linux x86_64",
+    "python": "3.11.16",
+    "torch": "2.6.0+cu124",
+    "torch_cuda": "12.4",
+    "train_amp_dtype": "torch.bfloat16",
+    "evaluation_dtype": "float32",
+    "allow_tf32": true,
+    "fused_adamw_effective": true
+  }
+}

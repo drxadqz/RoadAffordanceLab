@@ -1,8 +1,8 @@
 from __future__ import annotations
 
+import json
 import re
 import sys
-import json
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
@@ -16,43 +16,54 @@ REQUIRED_FILES = (
     "LICENSE",
     "pyproject.toml",
     "assets/road-affordance-lab-banner.svg",
+    "assets/drel-qrfme-overview.svg",
     "assets/c3-farnet-overview.svg",
-    "assets/verified-results.svg",
-    "docs/algorithm.md",
-    "docs/algorithm_zh.md",
+    "docs/drel_qrfme_full_release.md",
+    "docs/drel_qrfme_full_release_zh-CN.md",
     "docs/data_and_reproduction.md",
     "docs/data_and_reproduction_zh-CN.md",
     "docs/results_current_best.md",
     "docs/results_current_best_zh-CN.md",
     "docs/drel_algorithm.md",
     "docs/drel_algorithm_zh-CN.md",
-    "docs/drel_validation_evidence.md",
-    "docs/drel_validation_evidence_zh-CN.md",
+    "results/drel_qrfme_epoch097/metrics_summary.json",
+    "results/drel_qrfme_epoch097/training_metrics_epochs001-100.csv",
+    "results/drel_qrfme_epoch097/test_metrics_direct_resize224.json",
+    "results/drel_qrfme_epoch097/test_metrics_rspnet_center_crop.json",
+    "results/drel_qrfme_epoch097/per_class_metrics_direct_resize224.csv",
+    "results/drel_qrfme_epoch097/confusion_matrix_direct_resize224.csv",
     "results/current_best_s7/metrics_summary.json",
     "results/drel_d350_validation/metrics_summary.json",
-    "configs/c3_farnet/current_best_s7_public.yaml",
-    "configs/drel/component_full_d350.yaml",
-    "src/friction_affordance/models/drel.py",
-    "tests/test_drel.py",
-    "examples/drel_quickstart.py",
+    "configs/drel_qrfme/base_drel_qrfme_model.yaml",
+    "configs/drel_qrfme/rscd_full_train_seed097.yaml",
+    "src/drel_qrfme/models/drel_qrfme_model.py",
+    "tests/test_drel_qrfme_full.py",
+    "checkpoints/drel_qrfme_epoch097/best_checkpoint.pth",
+    "checkpoints/drel_qrfme_epoch097/CHECKPOINT.sha256",
 )
 
-PUBLIC_MARKDOWN = (
-    ROOT / "README.md",
-    ROOT / "README_zh-CN.md",
-    ROOT / "docs" / "data_and_reproduction_zh-CN.md",
-    ROOT / "docs" / "results_current_best_zh-CN.md",
-    ROOT / "docs" / "drel_algorithm.md",
-    ROOT / "docs" / "drel_algorithm_zh-CN.md",
-    ROOT / "docs" / "drel_validation_evidence.md",
-    ROOT / "docs" / "drel_validation_evidence_zh-CN.md",
+PUBLIC_MARKDOWN = tuple(
+    ROOT / relative
+    for relative in (
+        "README.md",
+        "README_zh-CN.md",
+        "docs/drel_qrfme_full_release.md",
+        "docs/drel_qrfme_full_release_zh-CN.md",
+        "docs/data_and_reproduction.md",
+        "docs/data_and_reproduction_zh-CN.md",
+        "docs/results_current_best.md",
+        "docs/results_current_best_zh-CN.md",
+        "docs/drel_algorithm.md",
+        "docs/drel_algorithm_zh-CN.md",
+        "docs/drel_validation_evidence.md",
+        "docs/drel_validation_evidence_zh-CN.md",
+    )
 )
 
 MACHINE_PATH_PATTERNS = (
     re.compile(r"[A-Za-z]:\\(?:Users|Documents|Desktop|Anaconda|路面感知)\\", re.IGNORECASE),
     re.compile(r"/(?:home|Users)/[^/\s]+/"),
 )
-
 MARKDOWN_LINK = re.compile(r"!?\[[^\]]*\]\(([^)]+)\)")
 
 
@@ -99,6 +110,7 @@ def check_machine_paths(errors: list[str]) -> None:
 def check_svg_assets(errors: list[str]) -> None:
     for relative in (
         "assets/road-affordance-lab-banner.svg",
+        "assets/drel-qrfme-overview.svg",
         "assets/c3-farnet-overview.svg",
         "assets/verified-results.svg",
     ):
@@ -110,13 +122,17 @@ def check_svg_assets(errors: list[str]) -> None:
 
 def check_headline_evidence(errors: list[str]) -> None:
     payload = json.loads(
-        (ROOT / "results/current_best_s7/metrics_summary.json").read_text(encoding="utf-8-sig")
+        (ROOT / "results/drel_qrfme_epoch097/metrics_summary.json").read_text(encoding="utf-8")
     )
+    result = payload["test_direct_resize224"]
     expected = {
-        f"{100.0 * float(payload['top1']):.3f}%",
-        f"{100.0 * float(payload['macro_f1']):.3f}%",
-        f"{100.0 * float(payload['water_concrete_slight_f1']):.3f}%",
-        f"{int(payload['num_samples']):,}",
+        f"{100.0 * float(result['top1']):.3f}%",
+        f"{100.0 * float(result['macro_f1']):.3f}%",
+        f"{100.0 * float(result['bottom5_mean_f1']):.3f}%",
+        f"{100.0 * float(result['weakest_class_f1']):.3f}%",
+        f"{int(payload['splits']['test_samples']):,}",
+        f"{int(payload['parameters']):,}",
+        f"Epoch {int(payload['checkpoint_epoch'])}",
     }
     for readme in (ROOT / "README.md", ROOT / "README_zh-CN.md"):
         text = readme.read_text(encoding="utf-8")
@@ -124,26 +140,35 @@ def check_headline_evidence(errors: list[str]) -> None:
             if value not in text:
                 errors.append(f"{readme.name} headline is missing evidence value {value}")
 
+    if payload.get("pretrained") is not False:
+        errors.append("DREL-QRFME full release must preserve pretrained=false")
+    if payload.get("checkpoint_epoch") != payload.get("best_validation", {}).get("epoch"):
+        errors.append("released checkpoint epoch must match the validation-selected epoch")
+    if payload.get("ensemble") is not False or payload.get("test_time_augmentation") is not False:
+        errors.append("headline evidence must remain single-model without TTA")
+    if not str(payload.get("claim_boundary", "")).strip():
+        errors.append("DREL-QRFME evidence must include a non-empty claim boundary")
 
-def check_drel_evidence(errors: list[str]) -> None:
-    path = ROOT / "results/drel_d350_validation/metrics_summary.json"
-    payload = json.loads(path.read_text(encoding="utf-8"))
+
+def check_checkpoint_record(errors: list[str]) -> None:
+    payload = json.loads(
+        (ROOT / "results/drel_qrfme_epoch097/metrics_summary.json").read_text(encoding="utf-8")
+    )
+    record = (ROOT / "checkpoints/drel_qrfme_epoch097/CHECKPOINT.sha256").read_text(
+        encoding="utf-8"
+    )
+    if str(payload["checkpoint_sha256"]) not in record:
+        errors.append("checkpoint SHA-256 record does not match metrics_summary.json")
+
+
+def check_legacy_validation_boundary(errors: list[str]) -> None:
+    payload = json.loads(
+        (ROOT / "results/drel_d350_validation/metrics_summary.json").read_text(encoding="utf-8")
+    )
     if payload.get("test_data_accessed") is not False:
-        errors.append("DREL evidence must explicitly preserve the test-data firewall")
+        errors.append("legacy DREL validation evidence must preserve the test firewall")
     if payload.get("formal_test_claim") is not False:
-        errors.append("DREL D350 validation must not be presented as a formal-test claim")
-
-    gate8 = payload["gate8"]["mean"]
-    rspnet = payload["rspnet_gate8_envelope"]["metrics"]
-    expected = {
-        f"{float(gate8['roughness']):.6f}",
-        f"{float(rspnet['roughness']):.6f}",
-    }
-    for readme in (ROOT / "README.md", ROOT / "README_zh-CN.md"):
-        text = readme.read_text(encoding="utf-8")
-        for value in expected:
-            if value not in text:
-                errors.append(f"{readme.name} DREL summary is missing evidence value {value}")
+        errors.append("legacy DREL D350 validation must not be a formal-test claim")
 
 
 def main() -> int:
@@ -154,7 +179,8 @@ def main() -> int:
     check_machine_paths(errors)
     check_svg_assets(errors)
     check_headline_evidence(errors)
-    check_drel_evidence(errors)
+    check_checkpoint_record(errors)
+    check_legacy_validation_boundary(errors)
     if errors:
         print("Repository contract check failed:", file=sys.stderr)
         for error in errors:

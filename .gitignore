@@ -19,6 +19,8 @@ wandb/
 !checkpoints/c3_farnet_formal_fullmanifest_source_reliable_router_s7_20260709/best.pt
 !checkpoints/c3_farnet_errorgate_paircal_screen_20260703/best_checkpoint.pth
 !checkpoints/screen_dry_concrete_vor_residual_scale012_lr1e3_s8k_from_anchor/best.pt
+!checkpoints/drel_qrfme_epoch097/best_checkpoint.pth
+!checkpoints/drel_qrfme_epoch097/CHECKPOINT.sha256
 !recovery/checkpoint_lineage/recovered_best_model_state_from_vor_teacher.pth
 *.ckpt
 *.onnx

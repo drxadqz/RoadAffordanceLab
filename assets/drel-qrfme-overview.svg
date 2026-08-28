@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="520" viewBox="0 0 1280 520" role="img" aria-labelledby="title desc">
+  <title id="title">DREL-QRFME architecture</title>
+  <desc id="desc">A four-stage semantic stream runs alongside a directional response ledger. Bounded writers connect the streams and query-conditioned RFME produces factor-aware residual logits.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#071827"/><stop offset="1" stop-color="#12364b"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="0" dy="5" stdDeviation="5" flood-opacity=".23"/></filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#7dd3fc"/></marker>
+    <style>
+      .t{font-family:Arial,'Microsoft YaHei',sans-serif;fill:#eef8ff}.h{font-size:26px;font-weight:700}.s{font-size:16px}.k{font-size:14px;fill:#b9d7e8}.box{rx:16;filter:url(#shadow);stroke-width:1.5}.a{stroke:#7dd3fc;stroke-width:3;fill:none;marker-end:url(#arrow)}.dash{stroke-dasharray:8 7}
+    </style>
+  </defs>
+  <rect width="1280" height="520" rx="28" fill="url(#bg)"/>
+  <text x="52" y="56" class="t h">DREL-QRFME</text>
+  <text x="52" y="82" class="t k">Directional Response Evidence Ledger + Query-conditioned Residual Factor Measure Estimation</text>
+  <rect x="42" y="178" width="142" height="92" class="box" fill="#174c67" stroke="#5dc9f3"/>
+  <text x="113" y="214" text-anchor="middle" class="t s" font-weight="700">RGB input</text><text x="113" y="241" text-anchor="middle" class="t k">224 × 224</text>
+  <path d="M184 224 H224" class="a"/>
+  <g>
+    <rect x="226" y="120" width="172" height="78" class="box" fill="#165c74" stroke="#6ee7f2"/><text x="312" y="151" text-anchor="middle" class="t s" font-weight="700">Semantic Stage 1</text><text x="312" y="176" text-anchor="middle" class="t k">local + context</text>
+    <rect x="442" y="120" width="172" height="78" class="box" fill="#165c74" stroke="#6ee7f2"/><text x="528" y="151" text-anchor="middle" class="t s" font-weight="700">Semantic Stage 2</text><text x="528" y="176" text-anchor="middle" class="t k">local + context</text>
+    <rect x="658" y="120" width="172" height="78" class="box" fill="#165c74" stroke="#6ee7f2"/><text x="744" y="151" text-anchor="middle" class="t s" font-weight="700">Semantic Stage 3</text><text x="744" y="176" text-anchor="middle" class="t k">local + context</text>
+    <rect x="874" y="120" width="172" height="78" class="box" fill="#165c74" stroke="#6ee7f2"/><text x="960" y="151" text-anchor="middle" class="t s" font-weight="700">Semantic Stage 4</text><text x="960" y="176" text-anchor="middle" class="t k">global representation</text>
+    <path d="M398 159 H442 M614 159 H658 M830 159 H874" class="a"/>
+  </g>
+  <g>
+    <rect x="226" y="304" width="172" height="92" class="box" fill="#533d73" stroke="#d8b4fe"/><text x="312" y="336" text-anchor="middle" class="t s" font-weight="700">DREL Stage 1</text><text x="312" y="360" text-anchor="middle" class="t k">signed directional</text><text x="312" y="380" text-anchor="middle" class="t k">response ledger</text>
+    <rect x="442" y="304" width="172" height="92" class="box" fill="#533d73" stroke="#d8b4fe"/><text x="528" y="336" text-anchor="middle" class="t s" font-weight="700">DREL Stage 2</text><text x="528" y="360" text-anchor="middle" class="t k">protected quotient</text><text x="528" y="380" text-anchor="middle" class="t k">+ reliability</text>
+    <rect x="658" y="304" width="172" height="92" class="box" fill="#533d73" stroke="#d8b4fe"/><text x="744" y="336" text-anchor="middle" class="t s" font-weight="700">DREL Stage 3</text><text x="744" y="360" text-anchor="middle" class="t k">composition / radial</text><text x="744" y="380" text-anchor="middle" class="t k">evidence</text>
+    <rect x="874" y="304" width="172" height="92" class="box" fill="#533d73" stroke="#d8b4fe"/><text x="960" y="336" text-anchor="middle" class="t s" font-weight="700">DREL Stage 4</text><text x="960" y="360" text-anchor="middle" class="t k">terminal octave</text><text x="960" y="380" text-anchor="middle" class="t k">operator</text>
+    <path d="M184 242 C205 242 204 350 226 350 M398 350 H442 M614 350 H658 M830 350 H874" class="a"/>
+  </g>
+  <g stroke="#fbbf24" stroke-width="3" fill="none" marker-end="url(#arrow)"><path d="M312 304 V210"/><path d="M528 304 V210"/><path d="M744 304 V210"/><path d="M960 304 V210"/></g>
+  <text x="622" y="260" text-anchor="middle" class="t k" fill="#fde68a">NormBudgetWriter: explicit ≤5% evidence-write bound</text>
+  <rect x="1078" y="100" width="164" height="118" class="box" fill="#0f766e" stroke="#5eead4"/><text x="1160" y="133" text-anchor="middle" class="t s" font-weight="700">Semantic head</text><text x="1160" y="159" text-anchor="middle" class="t k">27-class logits</text><text x="1160" y="184" text-anchor="middle" class="t k">global baseline</text>
+  <path d="M1046 159 H1078" class="a"/>
+  <rect x="1078" y="286" width="164" height="130" class="box" fill="#8a4b18" stroke="#fdba74"/><text x="1160" y="319" text-anchor="middle" class="t s" font-weight="700">QRFME</text><text x="1160" y="345" text-anchor="middle" class="t k">semantic queries</text><text x="1160" y="368" text-anchor="middle" class="t k">reliable measures</text><text x="1160" y="391" text-anchor="middle" class="t k">factor residuals</text>
+  <path d="M614 350 C850 470 1015 415 1078 363 M830 350 C930 420 1010 395 1078 376" class="a dash"/>
+  <rect x="1054" y="454" width="188" height="45" rx="14" fill="#e7f8ff"/><text x="1148" y="483" text-anchor="middle" font-family="Arial,'Microsoft YaHei',sans-serif" font-size="17" font-weight="700" fill="#07324a">Final 27 logits</text>
+  <path d="M1160 218 V454 M1160 416 V454" class="a"/>
+  <text x="52" y="480" class="t k">Training: Balanced Softmax on natural long-tail samples · Inference: raw logits · Scratch training · No teacher · No class-specific patch</text>
+</svg>

@@ -1,0 +1,64 @@
+{
+  "model": "DREL-QRFME",
+  "architecture_version": "drel_rt_rfme_v1",
+  "checkpoint_epoch": 97,
+  "checkpoint_sha256": "72c2c2cd34545dcc1e22d5c89d43d1c79b3278a3edd7bc5857e0ab0a493dff55",
+  "seed": 97,
+  "parameters": 26145426,
+  "pretrained": false,
+  "ensemble": false,
+  "test_time_augmentation": false,
+  "splits": {
+    "train_samples": 958941,
+    "validation_samples": 19860,
+    "test_samples": 49500,
+    "test_train_basename_overlap": 0,
+    "test_validation_basename_overlap": 0
+  },
+  "best_validation": {
+    "epoch": 97,
+    "top1": 0.913091641490433,
+    "macro_f1": 0.8962274001185588,
+    "bottom5_mean_f1": 0.7599502907639988,
+    "checkpoint_score": 0.8927182340062274
+  },
+  "test_direct_resize224": {
+    "protocol": "single 224x224 direct resize with ImageNet normalization",
+    "top1": 0.922646464646465,
+    "macro_f1": 0.900613188872622,
+    "weighted_f1": 0.922831403302273,
+    "bottom5_mean_f1": 0.793587628796274,
+    "weakest_class": "water_concrete_slight",
+    "weakest_class_f1": 0.75507614213198,
+    "nll": 0.220248775399394,
+    "ece_15": 0.0216789569246128,
+    "brier_score": 0.11564022101236,
+    "friction_accuracy": 0.974525252525253,
+    "material_accuracy": 0.981515151515152,
+    "roughness_accuracy": 0.955232323232323,
+    "metrics_sha256": "5a9d67f0ddf7cf697fe9d4913bb20b19a123076017a249411f9fd5146b05aeaa"
+  },
+  "test_rspnet_center_crop": {
+    "protocol": "resize short side by 1.14 then center crop to 224x224",
+    "top1": 0.9205656565656566,
+    "macro_f1": 0.8981875151685621,
+    "weighted_f1": 0.9206389798489513,
+    "bottom5_mean_f1": 0.7905521030176311,
+    "weakest_class": "water_concrete_slight",
+    "weakest_class_f1": 0.755865567533291,
+    "metrics_sha256": "0ac8ee507a2d9c114658d814ed0f56c3a2a9180036635ef8b81430bf0514c593"
+  },
+  "rspnet_l_released_direct_resize224": {
+    "top1": 0.9203434343434344,
+    "macro_f1": 0.8947444540341202,
+    "bottom5_mean_f1": 0.7767025528466615,
+    "weakest_class_f1": 0.7281420765027322
+  },
+  "drel_minus_rspnet_l_percentage_points": {
+    "top1": 0.23030303030306,
+    "macro_f1": 0.58687348385018,
+    "bottom5_mean_f1": 1.68850759496125,
+    "weakest_class_f1": 2.69340656292478
+  },
+  "claim_boundary": "Single seed and one frozen checkpoint. The direct-resize result is a post-hoc protocol comparison, not transform selection. Multi-seed confirmation remains required for a statistical SOTA claim."
+}

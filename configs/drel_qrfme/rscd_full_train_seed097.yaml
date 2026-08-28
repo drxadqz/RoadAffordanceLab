@@ -1,0 +1,143 @@
+# 冻结版本 DREL-RT + 查询条件 RFME 的正式全量 RSCD 训练配置。
+#
+# 架构与 v1 Gate5 的最佳分支完全一致。本配置只改变论文实验训练协议：
+# 每轮完整使用全部官方训练图像；Balanced Softmax 修正训练集约 36.74:1 的
+# 类别先验不平衡；验证图像处理遵循公开 RSPNet 的 224 像素方案。
+extends: base_drel_qrfme_model.yaml
+
+seed: 97
+# 通常不需要手改：启动脚本会用 --output-dir 覆盖它。
+output_dir: runs/seed097
+
+data:
+  image_size: 224
+  input_height: 224
+  input_width: 224
+  train_resize_mode: stretch
+  eval_resize_mode: rspnet_center_crop
+  eval_resize_scale: 1.14
+
+model:
+  pretrained: false
+  backbone_kwargs:
+    variant: rfme
+
+loss:
+  label_smoothing: 0.0
+  # 官方训练集各类别的原始样本数。验证/推理始终使用原始模型 logits；
+  # log(类别数) 修正只在训练交叉熵内部使用。
+  balanced_softmax_class_counts:
+    dry_asphalt_severe: 6610
+    dry_asphalt_slight: 27023
+    dry_asphalt_smooth: 76231
+    dry_concrete_severe: 38850
+    dry_concrete_slight: 16092
+    dry_concrete_smooth: 77938
+    dry_gravel: 63417
+    dry_mud: 49348
+    fresh_snow: 73560
+    ice: 54092
+    melted_snow: 61093
+    water_asphalt_severe: 2581
+    water_asphalt_slight: 4913
+    water_asphalt_smooth: 78390
+    water_concrete_severe: 5702
+    water_concrete_slight: 3924
+    water_concrete_smooth: 36046
+    water_gravel: 6422
+    water_mud: 9279
+    wet_asphalt_severe: 2161
+    wet_asphalt_slight: 24680
+    wet_asphalt_smooth: 79404
+    wet_concrete_severe: 3854
+    wet_concrete_slight: 6301
+    wet_concrete_smooth: 66955
+    wet_gravel: 36515
+    wet_mud: 47560
+
+train:
+  # ======================= 手动调参警戒线 =======================
+  # 【原实验续训时不要改】epochs、batch_size、grad_accum_steps、学习率、
+  # 数据增强、采样方法、AMP 精度。改变它们会让 Epoch 50 以后的结果不再
+  # 是原实验的严格延续。显存不足时不要擅自减 batch；应换用显存足够的卡。
+  # 【可以按机器调整】num_workers、prefetch_factor、persistent_workers、
+  # pin_memory、log_every_steps、save_step_checkpoint_every；这些主要影响速度、
+  # 内存占用或保存频率，不改变模型结构。详细建议见 docs/CONFIGURATION_CN.md。
+  epochs: 100
+  stop_after_epoch: 100
+  batch_size: 64
+  grad_accum_steps: 2
+  # Windows 的 DataLoader 使用 spawn；worker 太多会复制大数据集状态并耗尽内存。
+  num_workers: 2  # Windows 建议 0--4；Linux 大内存机器可尝试 8--16。
+  prefetch_factor: 2
+  persistent_workers: false  # Windows/内存紧张设 false；Linux 可测试 true。
+  pin_memory: true  # CUDA 训练通常 true；仅 CPU 训练可 false。
+
+  lr: 0.0005
+  warmup_epochs: 5
+  min_lr: 0.000001
+  weight_decay: 0.05
+  grad_clip_norm: 1.0
+  ema_decay: 0.0
+
+  # 一个正式 Epoch 必须遍历官方训练集全部 958,941 张图。TGR 适合低成本筛选
+  # 架构，但每轮只有 100,022 张，不能与论文中的 40/100 个全量 Epoch 直接比较。
+  balanced_sampling: false
+  temporal_rotation_sampling: false
+  natural_sampling_seed: 97
+  samples_per_epoch: 0
+
+  augmentation: true
+  augmentation_config:
+    resize_mode: stretch
+    random_resized_crop: true
+    crop_scale: [0.08, 1.0]
+    crop_ratio: [0.75, 1.3333333333333333]
+    horizontal_flip_p: 0.5
+    affine_degrees: 15.0
+    affine_translate: [0.0, 0.0]
+    affine_scale: [1.0, 1.0]
+    color_jitter:
+      brightness: 0.0
+      contrast: 0.0
+      saturation: 0.0
+      hue: 0.0
+    random_grayscale_p: 0.0
+    gaussian_blur_p: 0.0
+    jpeg_compression_p: 0.0
+    random_erasing_p: 0.0
+
+  amp: true
+  amp_dtype: bf16
+  eval_amp: false
+  fused_adamw: true
+  # Balanced Softmax 必须走通用 CE 路径，才能应用固定的 log(类别数) 修正；
+  # 因此这里有意关闭继承来的线性 CE 快速路径，不改变模型和损失的数学定义。
+  linear_ce_fast_path: false
+  cudnn_benchmark: true
+  cudnn_deterministic: false
+  deterministic_algorithms: false
+  deterministic_warn_only: false
+  allow_tf32: true
+  float32_matmul_precision: high
+
+  resume_from:
+  resume_step_checkpoint: true
+  resume_step_checkpoint_from:
+  resume_strict_model_state: false
+  require_step_checkpoint_model_config_match: true
+  require_step_checkpoint_data_config_match: true
+  require_step_checkpoint_loss_config_match: true
+  save_step_checkpoint_every: 250  # 越小越保险但磁盘写入更频繁。
+  log_every_steps: 125  # 只控制日志显示频率。
+  run_test_after_train: false
+
+eval:
+  batch_size: 64
+  num_workers: 0
+  persistent_workers: false
+  pin_memory: false
+  max_val_samples:
+  max_val_samples_per_class:
+  require_checkpoint_model_config_match: true
+  require_checkpoint_data_config_match: true

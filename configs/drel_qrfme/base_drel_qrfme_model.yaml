@@ -1,0 +1,137 @@
+# DREL-QRFME frozen model definition. The full-training recipe extends this file.
+seed: 97
+
+data:
+  train_manifest: release://data/manifests/rscd_official_train_958941.csv
+  train_manifest_sha256: 291da68330eca79bce5598aaf956c543bf6db7929f4a9a40c39b31d6ae96028f
+  expected_train_samples: 958941
+  val_manifest: release://data/manifests/rscd_official_validation_19860.csv
+  val_manifest_sha256: ea229505cae6950dac43d49606c1cb3123f2a2cd305f80bf23415c83eac48129
+  expected_val_samples: 19860
+  image_size: 224
+  input_height: 224
+  input_width: 224
+  train_resize_mode: stretch
+  eval_resize_mode: stretch
+  require_full_valid_support: false
+  require_direct_resize: false
+  require_native_size: false
+  explicit_valid_mask: false
+
+model:
+  classifier_type: drel_rt
+  pretrained: false
+  head_init_seed: 970027
+  backbone_kwargs:
+    variant: zero_write
+    semantic_channels: [96, 192, 384, 640]
+    semantic_depths: [2, 3, 9, 3]
+    ledger_channels: [24, 32, 48, 64]
+    response_kernel_sizes: [7, 5, 3, 3]
+    orientations: 4
+    drop_path_rate: 0.10
+    max_write_ratio: 0.05
+    initial_write_ratio: 0.012
+    rfme_dim: 64
+    rfme_rank: 128
+
+loss:
+  label_smoothing: 0.0
+  factor_weight: 0.0
+  tournament_weight: 0.0
+  counterfactual_weight: 0.0
+  reliability_weight: 0.0
+  focus_ce_extra_weight: 0.0
+  focus_ce_classes: []
+  hardpair_binary_loss_weight: 0.0
+  hardpair_value_pairwise_loss_weight: 0.0
+  feature_value_boundary_pairwise_loss_weight: 0.0
+  water_concrete_opponent_pairwise_loss_weight: 0.0
+  value_guided_roughness_order_weight: 0.0
+  protected_tristate_roughness_weight: 0.0
+  roughness_fiber_ce_weight: 0.0
+  value_guided_hardpair_margin_weight: 0.0
+  pair_value_selective_margin_weight: 0.0
+  factor_marginal_consistency_weight: 0.0
+  dry_concrete_bidirectional_ordinal_weight: 0.0
+  family_mechanism_router_weight: 0.0
+  factor_graph_metric_weight: 0.0
+  arcq_composition_consistency_weight: 0.0
+  arcq_roughness_coral_weight: 0.0
+
+train:
+  epochs: 100
+  stop_after_epoch: 5
+  batch_size: 64
+  grad_accum_steps: 2
+  num_workers: 4
+  prefetch_factor: 2
+  persistent_workers: true
+  pin_memory: true
+  release_train_workers_before_eval: true
+  lr: 0.0005
+  warmup_epochs: 5
+  min_lr: 0.000001
+  weight_decay: 0.05
+  grad_clip_norm: 1.0
+  ema_decay: 0.0
+  checkpoint_score_weights:
+    top1: 0.60
+    macro_f1: 0.30
+    bottom5_mean_f1: 0.10
+  augmentation: true
+  augmentation_config:
+    resize_mode: stretch
+    random_resized_crop: true
+    crop_scale: [0.75, 1.0]
+    crop_ratio: [0.9, 1.1]
+    horizontal_flip_p: 0.5
+    affine_degrees: 15.0
+    affine_translate: [0.0, 0.0]
+    affine_scale: [1.0, 1.0]
+    color_jitter: {brightness: 0.0, contrast: 0.0, saturation: 0.0, hue: 0.0}
+    random_grayscale_p: 0.0
+    gaussian_blur_p: 0.0
+    jpeg_compression_p: 0.0
+    random_erasing_p: 0.0
+  balanced_sampling: false
+  temporal_rotation_sampling: true
+  temporal_rotation_seed: 97
+  temporal_rotation_missing_timestamp: unique
+  temporal_rotation_max_samples: 0
+  samples_per_epoch: 0
+  amp: true
+  amp_dtype: bf16
+  eval_amp: false
+  fused_adamw: true
+  cudnn_benchmark: false
+  cudnn_deterministic: true
+  deterministic_algorithms: true
+  deterministic_warn_only: false
+  allow_tf32: false
+  float32_matmul_precision: highest
+  linear_ce_fast_path: true
+  skip_nonfinite_gradient_steps: false
+  resume_from:
+  resume_step_checkpoint: true
+  resume_step_checkpoint_from:
+  resume_strict_model_state: false
+  require_step_checkpoint_model_config_match: true
+  require_step_checkpoint_data_config_match: true
+  require_step_checkpoint_loss_config_match: true
+  save_step_checkpoint_every: 250
+  log_every_steps: 125
+  teacher_checkpoint:
+  expert_teacher_checkpoint:
+  evaluate_initial: false
+  run_test_after_train: false
+
+eval:
+  batch_size: 64
+  num_workers: 0
+  persistent_workers: false
+  pin_memory: false
+  max_val_samples:
+  max_val_samples_per_class:
+  require_checkpoint_model_config_match: true
+  require_checkpoint_data_config_match: true

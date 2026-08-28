@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "friction-affordance-field"
 version = "0.1.0"
-description = "Factor-aware, physics-guided visual road-surface recognition with auditable experiment provenance"
+description = "DREL-QRFME road-surface recognition with full-RSCD training, factor-aware evidence modeling, and auditable evaluation"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
